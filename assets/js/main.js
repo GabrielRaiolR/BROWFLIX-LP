@@ -47,23 +47,26 @@ class BrowflixLanding {
         : `./config/config.json${cacheBust}`;
 
       console.log("🔍 Tentando carregar config de:", configPath);
-      
+
       // Forçar requisição sem cache
       const response = await fetch(configPath, {
-        cache: 'no-store',
+        cache: "no-store",
         headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0'
-        }
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+        },
       });
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       this.config = await response.json();
       console.log("✅ Configuração carregada com sucesso:", this.config);
-      console.log("📊 Total de aprovados configurados:", this.config.approvedStudents?.students?.length);
+      console.log(
+        "📊 Total de aprovados configurados:",
+        this.config.approvedStudents?.students?.length
+      );
     } catch (error) {
       console.error("❌ Erro ao carregar configuração:", error);
       console.log("🔄 Usando configuração padrão...");

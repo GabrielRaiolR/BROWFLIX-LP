@@ -822,53 +822,56 @@
     <!-- Script de detecção e limpeza de cache -->
     <script>
       // Versão atual do site
-      const SITE_VERSION = '2024110102';
-      
+      const SITE_VERSION = "2024110102";
+
       // Limpar service workers se existirem
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            console.log('🧹 Removendo service worker:', registration);
-            registration.unregister();
-          }
-        });
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .getRegistrations()
+          .then(function (registrations) {
+            for (let registration of registrations) {
+              console.log("🧹 Removendo service worker:", registration);
+              registration.unregister();
+            }
+          });
       }
-      
+
       // Verificar se é uma versão diferente da anterior
-      const lastVersion = localStorage.getItem('browflix_version');
-      
+      const lastVersion = localStorage.getItem("browflix_version");
+
       if (lastVersion !== SITE_VERSION) {
-        console.log('🔄 Nova versão detectada! Limpando cache...');
-        
+        console.log("🔄 Nova versão detectada! Limpando cache...");
+
         // Limpar cache do localStorage
         localStorage.clear();
-        
+
         // Salvar nova versão
-        localStorage.setItem('browflix_version', SITE_VERSION);
-        
+        localStorage.setItem("browflix_version", SITE_VERSION);
+
         // Limpar sessionStorage também
         sessionStorage.clear();
-        
+
         // Forçar reload sem cache
         if (lastVersion !== null) {
-          console.log('🔄 Forçando reload completo sem cache...');
-          
+          console.log("🔄 Forçando reload completo sem cache...");
+
           // Tentar limpar cache API se disponível
-          if ('caches' in window) {
-            caches.keys().then(function(names) {
+          if ("caches" in window) {
+            caches.keys().then(function (names) {
               for (let name of names) {
-                console.log('🧹 Limpando cache:', name);
+                console.log("🧹 Limpando cache:", name);
                 caches.delete(name);
               }
             });
           }
-          
+
           // Forçar reload
-          window.location.href = window.location.href.split('?')[0] + '?nocache=' + Date.now();
+          window.location.href =
+            window.location.href.split("?")[0] + "?nocache=" + Date.now();
         }
       }
     </script>
-    
+
     <!-- Script de inicialização forçada -->
     <script>
       // Garantir que o conteúdo seja carregado mesmo se houver problemas
