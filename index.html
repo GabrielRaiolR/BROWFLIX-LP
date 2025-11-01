@@ -23,10 +23,51 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=2024110103" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=2024110201" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- Estilo inline para prevenir flash de conteúdo -->
+    <style>
+      /* Prevenir flash de conteúdo antes do JS carregar */
+      body:not(.js-loaded) main > section {
+        opacity: 1 !important;
+      }
+
+      /* Transição suave quando o conteúdo for atualizado */
+      body.js-loaded main > section {
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      /* Esconder elementos dinâmicos até carregar */
+      #students-carousel:empty,
+      #features-container:empty,
+      #courses-container:empty,
+      #testimonials-container:empty,
+      #bonus-container:empty,
+      #mini-courses-container:empty,
+      #pricing-container:empty {
+        min-height: 200px;
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: loading 1.5s ease-in-out infinite;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-white">
     <!-- ==================== HEADER ==================== -->
@@ -242,7 +283,7 @@
                 class="image-error-fallback absolute inset-0 flex items-center justify-center text-5xl"
               >
                 <img
-                  src="assets/images/banners/Plataforma-home.png?v=2024110103"
+                  src="assets/images/banners/Plataforma-home.png?v=2024110201"
                   alt="Didática Browflix"
                   class="absolute inset-0 w-full h-full object-cover"
                   onerror="this.style.display='none'; this.parentElement.innerHTML='📐✨';"
@@ -724,7 +765,7 @@
                 "
               >
                 <img
-                  src="assets/images/banners/Fundador.png?v=2024110103"
+                  src="assets/images/banners/Fundador.png?v=2024110201"
                   alt="Victor Brow - Fundador"
                   class="w-full h-full object-cover"
                   style="position: relative; z-index: 1"
@@ -817,12 +858,12 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js?v=2024110103"></script>
+    <script src="assets/js/main.js?v=2024110201"></script>
 
     <!-- Script de detecção e limpeza de cache -->
     <script>
       // Versão atual do site
-      const SITE_VERSION = "2024110103";
+      const SITE_VERSION = "2024110201";
 
       // Limpar service workers se existirem
       if ("serviceWorker" in navigator) {
@@ -872,197 +913,24 @@
       }
     </script>
 
-    <!-- Script de inicialização forçada -->
+    <!-- Script de inicialização -->
     <script>
-      // Garantir que o conteúdo seja carregado mesmo se houver problemas
+      // Inicialização simplificada - SEM fallback que atrapalha
       document.addEventListener("DOMContentLoaded", function () {
-        // Aguardar um pouco para garantir que o script principal tenha carregado
+        console.log("📄 DOM carregado, aguardando JavaScript principal...");
+
+        // Dar tempo para o main.js carregar e inicializar
         setTimeout(function () {
-          // Se não há configuração carregada, forçar carregamento
           if (typeof window.BrowflixLanding !== "undefined") {
-            const instance = new window.BrowflixLanding();
-            console.log("✅ Landing page inicializada com sucesso!");
+            // JavaScript principal carregou - ele cuida de tudo
+            console.log("✅ JavaScript principal detectado");
           } else {
-            console.log("⚠️ Carregando conteúdo de fallback...");
-            // Carregar conteúdo básico diretamente
-            loadFallbackContent();
+            // Erro crítico - JavaScript principal não carregou
+            console.error("❌ ERRO: JavaScript principal não carregou!");
+            console.error("Verifique se main.js está acessível");
           }
         }, 1000);
       });
-
-      function loadFallbackContent() {
-        // Carregar conteúdo básico se o JavaScript principal falhar
-        const elements = {
-          "page-title": "Plataforma Browflix - Intensivo Medicina ENEM",
-          "page-description":
-            "Didática mágica, resultados garantidos. A única plataforma do Brasil que GARANTE seu aprendizado.",
-          "logo-text": "MATEMÁTICA BROW",
-          "logo-subtitle": "Preparatório para o ENEM",
-          "logo-tagline": "PLATAFORMA BROWFLIX",
-          "login-button": "Já sou aluno",
-          "matriculate-button": "Quero me matricular",
-          "hero-title": "Didática 📐 Mágica,<br />resultados 🎓 garantidos",
-          "hero-description":
-            "A única Plataforma do Brasil com uma didática que <strong>GARANTE</strong> o seu aprendizado. Faça a sua matrícula agora na Plataforma Browflix.",
-          "hero-button": "Quero me matricular",
-          "students-title":
-            'Seja um <span class="text-green-500">aprovado</span><br />em Medicina',
-          "students-description":
-            'Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class="text-green-500 font-semibold">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.',
-          "students-subtitle": "Assim como nossos alunos:",
-          "didatica-title": "Didática mágica,<br />resultados<br />garantidos!",
-          "didatica-description1":
-            'O maior diferencial da Plataforma Browflix é a didática especial e mágica do professor Victor "Brow".',
-          "didatica-description2":
-            "O aluno tem a garantia total de que vai conseguir aprender e absorver as oportunidades, de modo que consegue aplicar na prova do ENEM de forma eficaz desde que o aluno clique nas aulas e se assista.",
-          "didatica-button": "Quero me matricular",
-          "contact-title":
-            "<strong>2025</strong> foi seu ano de estudar.<br /><strong>2026</strong> será seu ano de passar no ENEM.",
-          "contact-subtitle":
-            "Preencha seus dados e receba uma proposta personalizada",
-          "contact-button": "QUERO FAZER PARTE",
-          "contact-disclaimer":
-            'Ao clicar em "QUERO FAZER PARTE", você concorda com nossos termos de uso e política de privacidade.',
-          "footer-company": "Plataforma Browflix",
-          "footer-description":
-            "Transformando vidas através da educação de qualidade e preparação para o ENEM.",
-          "footer-copyright":
-            "&copy; 2024 Plataforma Browflix. Todos os direitos reservados.",
-        };
-
-        // Aplicar conteúdo aos elementos
-        Object.entries(elements).forEach(([id, content]) => {
-          const element = document.getElementById(id);
-          if (element) {
-            element.innerHTML = content;
-          }
-        });
-
-        // Carregar conteúdo dinâmico básico
-        loadBasicDynamicContent();
-      }
-
-      function loadBasicDynamicContent() {
-        // Carregar alunos aprovados
-        const studentsContainer = document.getElementById("students-carousel");
-        if (studentsContainer) {
-          const students = [
-            {
-              name: "Raul Fonseca dos Reis Motta",
-              university: "UFMA",
-              secondary: "UEMA",
-            },
-            {
-              name: "Jhonata Figueiredo Teixeira",
-              university: "UFRJ",
-              secondary: "",
-            },
-            {
-              name: "Gabriel Oliveira Pinheiro da Silva",
-              university: "UFF",
-              secondary: "",
-            },
-            {
-              name: "Maria Clara Andrade da Silva Lourenço",
-              university: "UERN",
-              secondary: "",
-            },
-            {
-              name: "Ana Amélia Chaves de Oliveira",
-              university: "UFMG",
-              secondary: "",
-            },
-            { name: "João Chammas", university: "UFRJ", secondary: "FAMINAS" },
-          ];
-
-          const studentsHTML = students
-            .map(
-              (student) => `
-            <div class="student-card">
-              <div class="relative mb-4">
-                <div class="student-image gradient-blue-purple">🎓</div>
-                <div class="student-badge">MEDICINA</div>
-              </div>
-              <h3 class="student-name">${student.name}</h3>
-              <div class="student-universities">
-                <span class="university-tag">${student.university}</span>
-                ${
-                  student.secondary
-                    ? `<span class="university-tag">${student.secondary}</span>`
-                    : ""
-                }
-              </div>
-              <p class="student-status">Aprovado em MEDICINA</p>
-            </div>
-          `
-            )
-            .join("");
-
-          studentsContainer.innerHTML = `
-            <div class="relative mb-8">
-              <div class="students-carousel-left carousel-left-animation">
-                ${studentsHTML}
-              </div>
-            </div>
-            <div class="relative">
-              <div class="students-carousel-right carousel-right-animation">
-                ${studentsHTML}
-              </div>
-            </div>
-          `;
-        }
-
-        // Carregar campos do formulário
-        const contactFields = document.getElementById("contact-fields");
-        if (contactFields) {
-          const fields = [
-            {
-              type: "text",
-              name: "nome",
-              placeholder: "Nome completo",
-              required: true,
-            },
-            {
-              type: "email",
-              name: "email",
-              placeholder: "E-mail",
-              required: true,
-            },
-            {
-              type: "tel",
-              name: "telefone",
-              placeholder: "Telefone",
-              required: true,
-            },
-            {
-              type: "text",
-              name: "cidade",
-              placeholder: "Cidade",
-              required: true,
-            },
-            {
-              type: "text",
-              name: "profissao",
-              placeholder: "Profissão/Área de atuação",
-              required: true,
-            },
-          ];
-
-          contactFields.innerHTML = fields
-            .map(
-              (field) => `
-            <div>
-              <input type="${field.type}" name="${field.name}" placeholder="${
-                field.placeholder
-              }" class="form-field" ${field.required ? "required" : ""} />
-            </div>
-          `
-            )
-            .join("");
-        }
-
-        console.log("✅ Conteúdo de fallback carregado com sucesso!");
-      }
     </script>
 
     <style>

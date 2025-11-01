@@ -1,4 +1,6 @@
 {
+  "_version": "2024110201",
+  "_lastUpdate": "2024-11-01T00:00:00Z",
   "site": {
     "title": "Plataforma Browflix - Intensivo Medicina ENEM",
     "description": "Didática mágica, resultados garantidos. A única plataforma do Brasil que GARANTE seu aprendizado.",
@@ -19,16 +21,17 @@
     }
   },
   "hero": {
-    "title": "Didática 📐 Mágica,<br />resultados 🎓 garantidos",
-    "description": "A única Plataforma do Brasil com uma didática que <strong>GARANTE</strong> o seu aprendizado. Faça a sua matrícula agora na Plataforma Browflix.",
+    "badge": "A sua História com o Brow",
+    "title": "Do sonho impossível à <span class='text-blue-600'>Medicina</span>:<br />A jornada que <span class='text-blue-600'>centenas</span> já percorreram 🏆",
+    "description": "Victor Brow transformou sua paixão por ensinar em uma metodologia que já aprovou <strong>mais de 500 alunos</strong> em Medicina. Agora é a <strong>sua vez</strong> de fazer parte dessa história.",
     "button": {
-      "text": "Quero me matricular",
-      "url": "#planos"
+      "text": "Quero ser o proximo aprovado em Medicina",
+      "url": "#contato"
     }
   },
   "approvedStudents": {
-    "title": "Seja um <span class=\"text-green-500\">aprovado</span><br />em Medicina",
-    "description": "Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class=\"text-green-500 font-semibold\">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.",
+    "title": "Seja um <span class=\"text-accent\">aprovado</span><br />em Medicina",
+    "description": "Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class=\"text-accent font-semibold\">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.",
     "subtitle": "Assim como nossos alunos:",
     "students": [
       {
@@ -257,7 +260,7 @@
     }
   },
   "testimonials": {
-    "title": "Veja <span class=\"text-green-500\">o que dizem</span> os alunos<br />da Plataforma Browflix.",
+    "title": "Veja <span class=\"text-accent\">o que dizem</span> os alunos<br />da Plataforma Browflix.",
     "subtitle": "A <span class=\"text-blue-600\">opinião</span> de quem já está vivendo <span class=\"text-blue-600\">o que você ainda sonha</span>.",
     "testimonials": [
       {
@@ -285,7 +288,7 @@
     }
   },
   "bonus": {
-    "title": "Inscreva-se nessa turma e<br /><span class=\"text-green-500\">garanta</span><br /><span class=\"text-green-500\">mais 3 presentes exclusivos</span>",
+    "title": "Inscreva-se nessa turma e<br /><span class=\"text-accent\">garanta</span><br /><span class=\"text-accent\">mais 3 presentes exclusivos</span>",
     "bonuses": [
       {
         "title": "Bônus 02 - 3 melhores de correção de redação",

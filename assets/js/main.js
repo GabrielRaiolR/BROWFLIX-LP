@@ -6,12 +6,14 @@
 class BrowflixLanding {
   constructor() {
     this.config = null;
-    this.cacheBustVersion = "2024110103"; // Versão para cache bust de imagens
+    this.cacheBustVersion = "2024110201"; // Versão para cache bust de imagens
     this.init();
   }
 
   async init() {
     try {
+      console.log("🚀 Iniciando Plataforma Browflix...");
+      
       // Carregar configuração
       await this.loadConfig();
 
@@ -24,12 +26,19 @@ class BrowflixLanding {
       this.initTestimonialCarousel();
       this.initResponsiveHandling();
 
+      // Marcar como carregado
+      document.body.classList.add('js-loaded');
+      
       console.log("✅ Plataforma Browflix carregada com sucesso!");
+      console.log("📦 Versão:", this.cacheBustVersion);
     } catch (error) {
       console.error("❌ Erro ao carregar a página:", error);
       // Forçar uso da configuração padrão em caso de erro
       this.config = this.getDefaultConfig();
       this.applyConfig();
+      
+      // Marcar como carregado mesmo com erro
+      document.body.classList.add('js-loaded');
     }
   }
 
@@ -40,13 +49,15 @@ class BrowflixLanding {
         document
           .querySelector('script[src*="main.js"]')
           ?.src.split("/assets/")[0] || "";
-      // Adiciona cache bust para forçar reload
-      const cacheBust = `?v=${Date.now()}`;
+      
+      // Usar a mesma versão do cache bust para consistência
+      const cacheBust = `?v=${this.cacheBustVersion}`;
       const configPath = basePath
         ? `${basePath}/config/config.json${cacheBust}`
         : `./config/config.json${cacheBust}`;
 
       console.log("🔍 Tentando carregar config de:", configPath);
+      console.log("🔖 Versão do cache bust:", this.cacheBustVersion);
 
       // Forçar requisição sem cache
       const response = await fetch(configPath, {
@@ -61,8 +72,27 @@ class BrowflixLanding {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      this.config = await response.json();
-      console.log("✅ Configuração carregada com sucesso:", this.config);
+      
+      const loadedConfig = await response.json();
+      
+      // Verificar se o config carregado tem a versão correta
+      const configVersion = loadedConfig._version || "0";
+      const expectedVersion = this.cacheBustVersion;
+      
+      console.log("🔍 Versão do config carregado:", configVersion);
+      console.log("🔍 Versão esperada:", expectedVersion);
+      
+      // Se não tiver a versão correta ou não tiver o badge, usar config padrão
+      if (configVersion !== expectedVersion || !loadedConfig.hero?.badge) {
+        console.warn("⚠️ Config antigo ou inválido detectado! Usando configuração padrão atualizada.");
+        console.warn("   Config carregado tem versão:", configVersion);
+        console.warn("   Versão esperada:", expectedVersion);
+        this.config = this.getDefaultConfig();
+      } else {
+        this.config = loadedConfig;
+        console.log("✅ Configuração carregada com sucesso! Versão:", configVersion);
+      }
+      
       console.log(
         "📊 Total de aprovados configurados:",
         this.config.approvedStudents?.students?.length
@@ -77,13 +107,15 @@ class BrowflixLanding {
 
   getDefaultConfig() {
     return {
+      _version: this.cacheBustVersion,
+      _lastUpdate: new Date().toISOString(),
       site: {
         title: "Plataforma Browflix - Intensivo Medicina ENEM",
         description:
           "Didática mágica, resultados garantidos. A única plataforma do Brasil que GARANTE seu aprendizado.",
         logo: {
-          text: "PRÉ-ENEM",
-          subtitle: "MATEMÁTICA BROW",
+          text: "MATEMÁTICA BROW",
+          subtitle: "Preparatório para o ENEM",
           tagline: "PLATAFORMA BROWFLIX",
         },
       },
@@ -103,7 +135,6 @@ class BrowflixLanding {
           "Do sonho impossível à <span class='text-blue-600'>Medicina</span>:<br />A jornada que <span class='text-blue-600'>centenas</span> já percorreram 🏆",
         description:
           "Victor Brow transformou sua paixão por ensinar em uma metodologia que já aprovou <strong>mais de 500 alunos</strong> em Medicina. Agora é a <strong>sua vez</strong> de fazer parte dessa história.",
-
         button: {
           text: "Quero ser o proximo aprovado em Medicina",
           url: "#contato",
@@ -113,7 +144,7 @@ class BrowflixLanding {
         title:
           'Seja um <span class="text-accent">aprovado</span><br />em Medicina',
         description:
-          'Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class="text-accent font-semibold">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.',
+          'Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class="font-semibold text-accent">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.',
         subtitle: "Assim como nossos alunos:",
         students: [
           // UFPA
@@ -1179,13 +1210,13 @@ class BrowflixLanding {
       didatica: {
         title: "Didática mágica,<br />resultados<br />garantidos!",
         description1:
-          "O maior diferencial da Plataforma Browflix é a didática especial e mágica do professor Pedro Assaad no caso real.",
+          "O maior diferencial da Plataforma Browflix é a didática especial e mágica do professor Victor \"Brow\".",
         description2:
-          "O aluno tem a garantia total de que vai conseguir aprender e absorver as oportunidades, de modo que consegue aplicar na prova do ENEM de forma eficaz desde que o aluno clique nas aulas e se assista.",
-        banner: "",
+          "O aluno tem a garantia total de que vai conseguir aprender e absorver as oportunidades, aplicando na prova do ENEM de forma eficaz.",
+        banner: "assets/images/banners/Plataforma-home.png",
         button: {
           text: "Quero me matricular",
-          url: "#planos",
+          url: "#contato",
         },
       },
       learningObjectives: {
@@ -1318,7 +1349,7 @@ class BrowflixLanding {
       },
       testimonials: {
         title:
-          'Veja <span class="text-green-500">o que dizem</span> os alunos<br />da Plataforma Browflix.',
+          'Veja <span class="text-accent">o que dizem</span> os alunos da Plataforma Browflix.',
         subtitle:
           'A <span class="text-blue-600">opinião</span> de quem já está vivendo <span class="text-blue-600">o que você ainda sonha</span>.',
         testimonials: [
@@ -1348,7 +1379,7 @@ class BrowflixLanding {
       },
       bonus: {
         title:
-          'Inscreva-se nessa turma e<br /><span class="text-green-500">garanta</span><br /><span class="text-green-500">mais 3 presentes exclusivos</span>',
+          'Inscreva-se nessa turma e<br /><span class="text-accent">garanta</span><br /><span class="text-accent">mais 3 presentes exclusivos</span>',
         bonuses: [
           {
             title: "Bônus 02 - 3 melhores de correção de redação",
@@ -1590,12 +1621,12 @@ class BrowflixLanding {
       },
       pedroAssaad: {
         title:
-          "Quem é<br /><span style=\"color:rgb(243, 201, 62)\">Victor'Brow'?</span>",
+          "Quem é<br /><span class=\"text-blue-footer\">Victor \"Brow\"?</span>",
         description: [
-          "<strong>Victor'Brow'</strong> é Diretor e Fundador do curso Matemática Brow, empresa que já aprovou mais de <strong>5.000 alunos</strong> em universidades públicas e privadas.",
+          "<strong>Victor \"Brow\"</strong> é Diretor e Fundador do Curso Matemática Brow, empresa que já aprovou mais de <strong>500 alunos</strong> em medicina em universidades públicas e privadas.",
           "Especialista em <strong>DIDÁTICA MÁGICA</strong> há mais de 15 anos e desenvolvedor do método que já transformou a vida de milhares de estudantes em todo o Brasil.",
           "Autor de diversos livros sobre técnicas de estudo e metodologias de ensino, Brow é reconhecido nacionalmente por sua capacidade única de simplificar conteúdos complexos.",
-          "<strong>Missão:</strong> Democratizar o acesso ao ensino superior de qualidade através de uma didática revolucionária que garante resultados.",
+          "<strong>Missão:</strong> Democratizar o acesso ao ensino de qualidade através de uma didática revolucionária que garante resultados.",
         ],
         image: "assets/images/banners/Fundador.png",
       },
@@ -1669,19 +1700,90 @@ class BrowflixLanding {
       this.config.hero?.secondaryButton?.text
     );
 
-    // Aplicar outras seções
-    this.renderApprovedStudents();
-    this.renderDidatica();
-    this.renderLearningObjectives();
-    this.renderPlatformFeatures();
-    this.renderCourses();
-    this.renderTestimonials();
-    this.renderBonus();
-    this.renderContact();
-    this.renderPricing();
-    this.renderMiniCourses();
-    this.renderPedroAssaad();
-    this.renderFooter();
+    // Aplicar outras seções com proteção contra erros
+    try { 
+      this.renderApprovedStudents(); 
+      console.log("✅ Seção Aprovados renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Aprovados:", e); 
+    }
+    
+    try { 
+      this.renderDidatica(); 
+      console.log("✅ Seção Didática renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Didática:", e); 
+    }
+    
+    try { 
+      this.renderLearningObjectives(); 
+      console.log("✅ Seção Objetivos renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Objetivos:", e); 
+    }
+    
+    try { 
+      this.renderPlatformFeatures(); 
+      console.log("✅ Seção Features renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Features:", e); 
+    }
+    
+    try { 
+      this.renderCourses(); 
+      console.log("✅ Seção Cursos renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Cursos:", e); 
+    }
+    
+    try { 
+      this.renderTestimonials(); 
+      console.log("✅ Seção Depoimentos renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Depoimentos:", e); 
+    }
+    
+    try { 
+      this.renderBonus(); 
+      console.log("✅ Seção Bônus renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Bônus:", e); 
+    }
+    
+    try { 
+      this.renderContact(); 
+      console.log("✅ Seção Contato renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Contato:", e); 
+    }
+    
+    try { 
+      this.renderPricing(); 
+      console.log("✅ Seção Preços renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Preços:", e); 
+    }
+    
+    try { 
+      this.renderMiniCourses(); 
+      console.log("✅ Seção Mini Cursos renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Mini Cursos:", e); 
+    }
+    
+    try { 
+      this.renderPedroAssaad(); 
+      console.log("✅ Seção Victor Brow renderizada");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Victor Brow:", e); 
+    }
+    
+    try { 
+      this.renderFooter(); 
+      console.log("✅ Footer renderizado");
+    } catch(e) { 
+      console.error("❌ Erro ao renderizar Footer:", e); 
+    }
   }
 
   updateElement(id, content) {
@@ -1693,14 +1795,30 @@ class BrowflixLanding {
 
   renderApprovedStudents() {
     const config = this.config.approvedStudents;
-    if (!config) return;
+    if (!config) {
+      console.warn("⚠️ Config approvedStudents não encontrado");
+      return;
+    }
 
     this.updateElement("students-title", config.title);
     this.updateElement("students-description", config.description);
     this.updateElement("students-subtitle", config.subtitle);
 
     const carousel = document.getElementById("students-carousel");
-    if (!carousel || !config.students) return;
+    if (!carousel) {
+      console.error("❌ Container students-carousel não encontrado");
+      return;
+    }
+    
+    if (!config.students || !Array.isArray(config.students)) {
+      console.error("❌ students não é um array válido");
+      return;
+    }
+    
+    if (config.students.length === 0) {
+      console.warn("⚠️ Nenhum aluno aprovado configurado");
+      return;
+    }
 
     // Criar duas linhas de carrossel
     // Dividir os alunos em duas linhas (pegar todos os alunos)
@@ -1817,13 +1935,24 @@ class BrowflixLanding {
 
   renderPlatformFeatures() {
     const config = this.config.platformFeatures;
-    if (!config) return;
+    if (!config) {
+      console.warn("⚠️ Config platformFeatures não encontrado");
+      return;
+    }
 
     this.updateElement("features-title", config.title);
     this.updateElement("features-button", config.button?.text);
 
     const container = document.getElementById("features-container");
-    if (!container || !config.features) return;
+    if (!container) {
+      console.error("❌ Container features-container não encontrado");
+      return;
+    }
+    
+    if (!config.features || !Array.isArray(config.features)) {
+      console.error("❌ features não é um array válido");
+      return;
+    }
 
     const featuresHTML = config.features
       .map(
@@ -1851,14 +1980,25 @@ class BrowflixLanding {
 
   renderCourses() {
     const config = this.config.courses;
-    if (!config) return;
+    if (!config) {
+      console.warn("⚠️ Config courses não encontrado");
+      return;
+    }
 
     this.updateElement("courses-title", config.title);
     this.updateElement("courses-subtitle", config.subtitle);
     this.updateElement("courses-button", config.button?.text);
 
     const container = document.getElementById("courses-container");
-    if (!container || !config.courses) return;
+    if (!container) {
+      console.error("❌ Container courses-container não encontrado");
+      return;
+    }
+    
+    if (!config.courses || !Array.isArray(config.courses)) {
+      console.error("❌ courses não é um array válido");
+      return;
+    }
 
     const coursesHTML = config.courses
       .map(
@@ -1893,14 +2033,25 @@ class BrowflixLanding {
 
   renderTestimonials() {
     const config = this.config.testimonials;
-    if (!config) return;
+    if (!config) {
+      console.warn("⚠️ Config testimonials não encontrado");
+      return;
+    }
 
     this.updateElement("testimonials-title", config.title);
     this.updateElement("testimonials-subtitle", config.subtitle);
     this.updateElement("testimonials-button", config.button?.text);
 
     const container = document.getElementById("testimonials-container");
-    if (!container || !config.testimonials) return;
+    if (!container) {
+      console.error("❌ Container testimonials-container não encontrado");
+      return;
+    }
+    
+    if (!config.testimonials || !Array.isArray(config.testimonials)) {
+      console.error("❌ testimonials não é um array válido");
+      return;
+    }
 
     const testimonialsHTML = config.testimonials
       .map(
@@ -1943,14 +2094,25 @@ class BrowflixLanding {
 
   renderBonus() {
     const config = this.config.bonus;
-    if (!config) return;
+    if (!config) {
+      console.warn("⚠️ Config bonus não encontrado");
+      return;
+    }
 
     this.updateElement("bonus-title", config.title);
     this.updateElement("bonus-footer", config.footerText);
     this.updateElement("bonus-button", config.button?.text);
 
     const container = document.getElementById("bonus-container");
-    if (!container || !config.bonuses) return;
+    if (!container) {
+      console.error("❌ Container bonus-container não encontrado");
+      return;
+    }
+    
+    if (!config.bonuses || !Array.isArray(config.bonuses)) {
+      console.error("❌ bonuses não é um array válido");
+      return;
+    }
 
     const bonusHTML = config.bonuses
       .map(
@@ -2007,10 +2169,21 @@ class BrowflixLanding {
 
   renderPricing() {
     const config = this.config.pricing;
-    if (!config || !config.plans) return;
+    if (!config) {
+      console.warn("⚠️ Config pricing não encontrado");
+      return;
+    }
+    
+    if (!config.plans || !Array.isArray(config.plans)) {
+      console.error("❌ plans não é um array válido");
+      return;
+    }
 
     const container = document.getElementById("pricing-container");
-    if (!container) return;
+    if (!container) {
+      console.error("❌ Container pricing-container não encontrado");
+      return;
+    }
 
     const pricingHTML = config.plans
       .map(
