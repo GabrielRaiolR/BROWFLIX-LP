@@ -6,7 +6,7 @@
 class BrowflixLanding {
   constructor() {
     this.config = null;
-    this.cacheBustVersion = "2024110102"; // Versão para cache bust de imagens
+    this.cacheBustVersion = "2024110103"; // Versão para cache bust de imagens
     this.init();
   }
 
