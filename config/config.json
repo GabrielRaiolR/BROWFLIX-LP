@@ -1,0 +1,597 @@
+{
+  "site": {
+    "title": "Plataforma Browflix - Intensivo Medicina ENEM",
+    "description": "Didática mágica, resultados garantidos. A única plataforma do Brasil que GARANTE seu aprendizado.",
+    "logo": {
+      "text": "MATEMÁTICA BROW",
+      "subtitle": "Preparatório para o ENEM",
+      "tagline": "PLATAFORMA BROWFLIX"
+    }
+  },
+  "header": {
+    "loginButton": {
+      "text": "Já sou aluno",
+      "url": "https://www.cursomatematicabrow.com/homepage"
+    },
+    "matriculateButton": {
+      "text": "Quero me matricular",
+      "url": "#planos"
+    }
+  },
+  "hero": {
+    "title": "Didática 📐 Mágica,<br />resultados 🎓 garantidos",
+    "description": "A única Plataforma do Brasil com uma didática que <strong>GARANTE</strong> o seu aprendizado. Faça a sua matrícula agora na Plataforma Browflix.",
+    "button": {
+      "text": "Quero me matricular",
+      "url": "#planos"
+    }
+  },
+  "approvedStudents": {
+    "title": "Seja um <span class=\"text-green-500\">aprovado</span><br />em Medicina",
+    "description": "Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class=\"text-green-500 font-semibold\">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.",
+    "subtitle": "Assim como nossos alunos:",
+    "students": [
+      {
+        "name": "Raul Fonseca dos Reis Motta",
+        "university": "UFMA",
+        "secondary": "UEMA",
+        "image": "assets/images/aprovados/raul-fonseca.jpg",
+        "gradient": "from-blue-500 to-purple-600"
+      },
+      {
+        "name": "Jhonata Figueiredo Teixeira",
+        "university": "UFRJ",
+        "secondary": "",
+        "image": "assets/images/aprovados/jhonata-figueiredo.jpg",
+        "gradient": "from-blue-500 to-purple-600"
+      },
+      {
+        "name": "Gabriel Oliveira Pinheiro da Silva",
+        "university": "UFF",
+        "secondary": "",
+        "image": "assets/images/aprovados/gabriel-oliveira.jpg",
+        "gradient": "from-blue-500 to-purple-600"
+      },
+      {
+        "name": "Maria Clara Andrade da Silva Lourenço",
+        "university": "UERN",
+        "secondary": "",
+        "image": "assets/images/aprovados/maria-clara.jpg",
+        "gradient": "from-pink-500 to-red-500"
+      },
+      {
+        "name": "Ana Amélia Chaves de Oliveira",
+        "university": "UFMG",
+        "secondary": "",
+        "image": "assets/images/aprovados/ana-amelia.jpg",
+        "gradient": "from-pink-500 to-red-500"
+      },
+      {
+        "name": "Maria Fernanda",
+        "university": "UFES",
+        "secondary": "",
+        "image": "assets/images/aprovados/maria-fernanda.jpg",
+        "gradient": "from-blue-500 to-purple-600"
+      },
+      {
+        "name": "Isadora Pereira",
+        "university": "UFC",
+        "secondary": "",
+        "image": "assets/images/aprovados/isadora-pereira.jpg",
+        "gradient": "from-pink-500 to-red-500"
+      },
+      {
+        "name": "Isadora Oliveira",
+        "university": "UNIFAL",
+        "secondary": "",
+        "image": "assets/images/aprovados/isadora-oliveira.jpg",
+        "gradient": "from-blue-500 to-purple-600"
+      },
+      {
+        "name": "Isabela de Amorim",
+        "university": "UFVJM",
+        "secondary": "UNIOESTE",
+        "image": "assets/images/aprovados/isabela-amorim.jpg",
+        "gradient": "from-pink-500 to-red-500"
+      },
+      {
+        "name": "Maria Celeste Neres Rocha",
+        "university": "UFMG",
+        "secondary": "UFVJM",
+        "image": "assets/images/aprovados/maria-celeste.jpg",
+        "gradient": "from-blue-500 to-purple-600"
+      },
+      {
+        "name": "Francisco das Chagas",
+        "university": "UFDPAR",
+        "secondary": "UFCA",
+        "image": "assets/images/aprovados/francisco-chagas.jpg",
+        "gradient": "from-pink-500 to-red-500"
+      },
+      {
+        "name": "Alysson Felippe Carvalho",
+        "university": "UFU",
+        "secondary": "UFMG",
+        "image": "assets/images/aprovados/alysson-felippe.jpg",
+        "gradient": "from-blue-500 to-purple-600"
+      },
+      {
+        "name": "João Chammas",
+        "university": "UFRJ",
+        "secondary": "FAMINAS",
+        "image": "assets/images/aprovados/joao-chammas.jpg",
+        "gradient": "from-pink-500 to-red-500"
+      }
+    ]
+  },
+  "didatica": {
+    "title": "Didática mágica,<br />resultados<br />garantidos!",
+    "description1": "O maior diferencial da Plataforma Browflix é a didática especial e mágica do professor Victor \"Brow\".",
+    "description2": "O aluno tem a garantia total de que vai conseguir aprender e absorver as oportunidades, de modo que consegue aplicar na prova do ENEM de forma eficaz desde que o aluno clique nas aulas e se assista.",
+    "banner": "assets/images/banners/Plataforma-home.png",
+    "button": {
+      "text": "Quero me matricular",
+      "url": "#planos"
+    }
+  },
+  "learningObjectives": {
+    "title": "O que você vai aprender no<br /><span class=\"text-blue-600\">Intensivo da Plataforma Browflix?</span>",
+    "objectives": [
+      {
+        "number": 1,
+        "text": "Dominar todas as<br />matérias do ENEM"
+      },
+      {
+        "number": 2,
+        "text": "Resolver questões complexas<br />com facilidade e rapidez"
+      },
+      {
+        "number": 3,
+        "text": "Gestão do tempo e produtividade<br />com técnicas específicas para<br />preparação para o ENEM"
+      },
+      {
+        "number": 4,
+        "text": "Estratégias de estudo<br />validadas por centenas de<br />aprovados em Medicina"
+      }
+    ],
+    "button": {
+      "text": "Quero me matricular",
+      "url": "#planos"
+    }
+  },
+  "platformFeatures": {
+    "title": "O que você encontra<br />na plataforma?",
+    "features": [
+      {
+        "icon": "👤",
+        "title": "Área do aluno exclusiva",
+        "gradient": "from-blue-500 to-purple-600",
+        "banner": ""
+      },
+      {
+        "icon": "🎬",
+        "title": "Aulas ultradidáticas com qualidade de cinema",
+        "gradient": "from-pink-500 to-red-500",
+        "banner": ""
+      },
+      {
+        "icon": "📱",
+        "title": "Aplicativo que permite você baixar as aulas para assistir offline sem gastar seu pacote de dados",
+        "gradient": "from-cyan-500 to-blue-500",
+        "banner": ""
+      },
+      {
+        "icon": "📝",
+        "title": "Listas de questões selecionadas e resolvidas com uma didática impecável",
+        "gradient": "from-green-500 to-teal-500",
+        "banner": ""
+      },
+      {
+        "icon": "📡",
+        "title": "Aulas Ao Vivo até o ENEM 2025",
+        "gradient": "from-pink-500 to-yellow-500",
+        "banner": ""
+      },
+      {
+        "icon": "🎓",
+        "title": "Monitorias e tutorias com aprovados em Medicina",
+        "gradient": "from-teal-500 to-purple-500",
+        "banner": ""
+      }
+    ],
+    "button": {
+      "text": "Quero ter acesso a tudo isso",
+      "url": "#contato"
+    }
+  },
+  "courses": {
+    "title": "Nossos cursos:",
+    "subtitle": "Conheça a Plataforma Browflix por dentro:",
+    "courses": [
+      {
+        "title": "Matemática",
+        "subtitle": "Básica",
+        "bgColor": "bg-blue-600",
+        "textColor": "text-white",
+        "image": ""
+      },
+      {
+        "title": "Matemática Básica",
+        "subtitle": "para o ENEM",
+        "bgColor": "bg-blue-700",
+        "textColor": "text-white",
+        "image": ""
+      },
+      {
+        "title": "Funções e",
+        "subtitle": "Matemática Financeira",
+        "bgColor": "bg-blue-800",
+        "textColor": "text-white",
+        "image": ""
+      },
+      {
+        "title": "Análise Combinatória",
+        "subtitle": "e Probabilidade",
+        "bgColor": "bg-blue-500",
+        "textColor": "text-white",
+        "image": ""
+      },
+      {
+        "title": "Geometria Plana",
+        "subtitle": "e Espacial",
+        "bgColor": "bg-blue-400",
+        "textColor": "text-white",
+        "image": ""
+      },
+      {
+        "title": "Curso de",
+        "subtitle": "Revisão",
+        "bgColor": "bg-blue-200",
+        "textColor": "text-blue-800",
+        "image": ""
+      },
+      {
+        "title": "Curso nas Férias",
+        "subtitle": "do Brow",
+        "bgColor": "bg-orange-200",
+        "textColor": "text-orange-700",
+        "image": ""
+      },
+      {
+        "title": "Projeto",
+        "subtitle": "Iniciante",
+        "bgColor": "bg-indigo-700",
+        "textColor": "text-white",
+        "image": ""
+      },
+      {
+        "title": "Projeto",
+        "subtitle": "Elite",
+        "bgColor": "bg-amber-600",
+        "textColor": "text-white",
+        "image": ""
+      },
+      {
+        "title": "H.E.C.B",
+        "subtitle": "Habilidades ENEM com o Brow",
+        "bgColor": "bg-gray-700",
+        "textColor": "text-white",
+        "image": ""
+      }
+    ],
+    "button": {
+      "text": "Quero ter acesso aos cursos agora",
+      "url": "#contato"
+    }
+  },
+  "testimonials": {
+    "title": "Veja <span class=\"text-green-500\">o que dizem</span> os alunos<br />da Plataforma Browflix.",
+    "subtitle": "A <span class=\"text-blue-600\">opinião</span> de quem já está vivendo <span class=\"text-blue-600\">o que você ainda sonha</span>.",
+    "testimonials": [
+      {
+        "icon": "🎓",
+        "gradient": "from-blue-500 to-purple-600",
+        "tags": ["960 na redação do ENEM", "Mudança de mentalidade"]
+      },
+      {
+        "icon": "🎓",
+        "gradient": "from-pink-500 to-red-500",
+        "tags": ["960 na redação do ENEM", "39/45 em Matemática"]
+      },
+      {
+        "icon": "🎓",
+        "gradient": "from-cyan-500 to-blue-500",
+        "tags": [
+          "+150 acertos em menos de 1 ano",
+          "Aprendi a gostar das matérias"
+        ]
+      }
+    ],
+    "button": {
+      "text": "Quero ser o próximo aprovado!",
+      "url": "#contato"
+    }
+  },
+  "bonus": {
+    "title": "Inscreva-se nessa turma e<br /><span class=\"text-green-500\">garanta</span><br /><span class=\"text-green-500\">mais 3 presentes exclusivos</span>",
+    "bonuses": [
+      {
+        "title": "Bônus 02 - 3 melhores de correção de redação",
+        "description": "Aprenda com os melhores exemplos de redação corrigidos por especialistas. Material exclusivo que vai elevar seu nível de escrita para o ENEM.",
+        "icon": "✍️",
+        "gradient": "from-blue-500 to-purple-600",
+        "price": "GRÁTIS"
+      },
+      {
+        "title": "Bônus 03 - Gramática para Redação",
+        "description": "Domine a gramática essencial para uma redação nota 1000. Conteúdo focado nas principais dificuldades dos estudantes.",
+        "icon": "📖",
+        "gradient": "from-pink-500 to-red-500",
+        "price": "GRÁTIS"
+      },
+      {
+        "title": "Bônus 04 - Masterclass: Como estudar com Mira Sargent",
+        "description": "Metodologia exclusiva de uma das maiores especialistas em técnicas de estudo do Brasil. Transforme sua forma de aprender.",
+        "icon": "🎯",
+        "gradient": "from-cyan-500 to-blue-500",
+        "price": "GRÁTIS"
+      }
+    ],
+    "footerText": "Tudo isso <strong>grátis</strong> para você,<br />porque é um <strong>presente!</strong>",
+    "button": {
+      "text": "Quero garantir meus bônus agora",
+      "url": "#contato"
+    }
+  },
+  "contact": {
+    "title": "<strong>2025</strong> foi seu ano de estudar.<br /><strong>2026</strong> será seu ano de passar no ENEM.",
+    "subtitle": "Preencha seus dados e receba uma proposta personalizada",
+    "form": {
+      "fields": [
+        {
+          "type": "text",
+          "name": "nome",
+          "placeholder": "Nome completo",
+          "required": true
+        },
+        {
+          "type": "email",
+          "name": "email",
+          "placeholder": "E-mail",
+          "required": true
+        },
+        {
+          "type": "tel",
+          "name": "telefone",
+          "placeholder": "Telefone",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "cidade",
+          "placeholder": "Cidade",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "profissao",
+          "placeholder": "Profissão/Área de atuação",
+          "required": true
+        }
+      ],
+      "button": {
+        "text": "QUERO FAZER PARTE"
+      },
+      "disclaimer": "Ao clicar em \"QUERO FAZER PARTE\", você concorda com nossos termos de uso e política de privacidade."
+    }
+  },
+  "pricing": {
+    "plans": [
+      {
+        "name": "Plataforma Browflix",
+        "subtitle": "Acesso até o ENEM 2026",
+        "icon": "PB",
+        "color": "blue",
+        "price": "R$ 3.000,00",
+        "installments": "ou 12x de R$ 299,41",
+        "features": [
+          "Curso de Matemática",
+          "Curso de Física",
+          "Curso de Biologia",
+          "Curso de Química",
+          "Curso de Humanas",
+          "Curso de Redação",
+          "Curso de História",
+          "Curso de Sociologia",
+          "Curso de Filosofia",
+          "Curso de Geografia"
+        ],
+        "bonuses": [
+          "Garantia 7 dias",
+          "Concentração e Foco",
+          "Blindagem Emocional",
+          "Rotina de Campeão",
+          "4 Créditos de correção de redação por mês até o ENEM 2025"
+        ],
+        "button": {
+          "text": "Quero me matricular agora",
+          "style": "outline"
+        }
+      },
+      {
+        "name": "INTENSIVO Medicina ENEM",
+        "subtitle": "PLATAFORMA BROWFLIX",
+        "icon": "IM",
+        "color": "blue",
+        "highlighted": true,
+        "badge": "INTENSIVO MEDICINA ENEM 2025",
+        "originalPrice": "De R$ 3.000,00 por:",
+        "price": "12x R$ 119,76",
+        "installments": "ou R$ 1200 à vista",
+        "features": [
+          "Curso de Matemática",
+          "Curso de Física",
+          "Curso de Biologia",
+          "Curso de Química",
+          "Curso de Humanas",
+          "Curso de Redação",
+          "Curso de História",
+          "Curso de Sociologia",
+          "Curso de Filosofia",
+          "Curso de Geografia"
+        ],
+        "bonuses": [
+          "Garantia 7 dias",
+          "Concentração e Foco",
+          "Blindagem Emocional",
+          "Rotina de Campeão",
+          "4 Créditos de correção de redação por mês até o ENEM 2025",
+          "Material Didático",
+          "Mapa de progresso competitivo",
+          "Plataforma de Redação",
+          "Masterclass: Como estudar em Alta Performance",
+          "Curso de Redação com Milla Borges",
+          "Curso de Gramática para Redação"
+        ],
+        "button": {
+          "text": "Quero me matricular agora",
+          "style": "primary"
+        }
+      },
+      {
+        "name": "Plataforma Browflix PREMIUM",
+        "subtitle": "Acesso até o ENEM 2027",
+        "icon": "PP",
+        "color": "blue",
+        "price": "R$ 4.500,00",
+        "installments": "ou 12x de R$ 449,11",
+        "features": [
+          "Curso de Matemática",
+          "Curso de Física",
+          "Curso de Biologia",
+          "Curso de Química",
+          "Curso de Humanas",
+          "Curso de Redação",
+          "Curso de História",
+          "Curso de Sociologia",
+          "Curso de Filosofia",
+          "Curso de Geografia"
+        ],
+        "bonuses": [
+          "Garantia 7 dias",
+          "Concentração e Foco",
+          "Blindagem Emocional",
+          "Rotina de Campeão",
+          "6 Créditos de correção de redação por mês até o ENEM 2027",
+          "Material Didático Premium",
+          "Mentorias individuais"
+        ],
+        "button": {
+          "text": "Quero me matricular agora",
+          "style": "outline"
+        }
+      }
+    ]
+  },
+  "miniCourses": {
+    "title": "Cursos Complementares",
+    "subtitle": "Expanda ainda mais seus conhecimentos",
+    "courses": [
+      {
+        "title": "Curso Básico de Matemática",
+        "icon": "📊",
+        "price": "R$ 199,00",
+        "gradient": "blue-dark"
+      },
+      {
+        "title": "Física para Iniciantes",
+        "icon": "⚛️",
+        "price": "R$ 179,00",
+        "gradient": "blue-medium"
+      },
+      {
+        "title": "Química Orgânica",
+        "icon": "🧪",
+        "price": "R$ 189,00",
+        "gradient": "blue-light"
+      },
+      {
+        "title": "Biologia Celular",
+        "icon": "🦠",
+        "price": "R$ 169,00",
+        "gradient": "blue-dark"
+      },
+      {
+        "title": "Redação Nota 1000",
+        "icon": "✍️",
+        "price": "R$ 249,00",
+        "gradient": "yellow"
+      },
+      {
+        "title": "História do Brasil",
+        "icon": "📚",
+        "price": "R$ 159,00",
+        "gradient": "blue-medium"
+      },
+      {
+        "title": "Geografia Mundial",
+        "icon": "🌍",
+        "price": "R$ 159,00",
+        "gradient": "blue-light"
+      },
+      {
+        "title": "Inglês Instrumental",
+        "icon": "🗣️",
+        "price": "R$ 199,00",
+        "gradient": "yellow"
+      }
+    ]
+  },
+  "pedroAssaad": {
+    "title": "Quem é<br /><span style=\"color:rgb(243, 201, 62)\">Victor \"Brow\"?</span>",
+    "description": [
+      "<strong>Victor \"Brow\"</strong> é Diretor e Fundador do Curso Matemática Brow, empresa que já aprovou mais de <strong>500 alunos</strong> em medicina em universidades públicas e privadas.",
+      "Especialista em <strong>DIDÁTICA MÁGICA</strong> há mais de 15 anos e desenvolvedor do método que já transformou a vida de milhares de estudantes em todo o Brasil.",
+      "Autor de diversos livros sobre técnicas de estudo e metodologias de ensino, Brow é reconhecido nacionalmente por sua capacidade única de simplificar conteúdos complexos.",
+      "<strong>Missão:</strong> Democratizar o acesso ao ensino de qualidade através de uma didática revolucionária que garante resultados."
+    ],
+    "image": "assets/images/banners/Fundador.png"
+  },
+  "footer": {
+    "company": {
+      "name": "Plataforma Browflix",
+      "description": "Transformando vidas através da educação de qualidade e preparação para o ENEM."
+    },
+    "social": {
+      "facebook": "https://www.facebook.com/profile.php?id=100067189491908",
+      "instagram": "https://www.instagram.com/matematicabrow/",
+      "youtube": "https://www.youtube.com/@matematicabrow"
+    },
+    "links": {
+      "cursos": [
+        "Matemática Brow",
+        "Desumanidades",
+        "Redação - Rafael Bittencourt",
+        "CN Brow",
+        "Torre De Babrow - Curso de Linguagens"
+      ],
+      "sobre": [
+        "Sobre Nós",
+        "Nossa Equipe",
+        "Trabalhe Conosco",
+        "Plataforma Browflix"
+      ],
+      "suporte": [
+        "Central de Ajuda",
+        "Contato",
+        "Termos de Uso",
+        "Política de Privacidade"
+      ]
+    },
+    "copyright": "© 2024 Plataforma Browflix. Todos os direitos reservados."
+  },
+  "whatsapp": {
+    "number": "5511987654321",
+    "message": "Olá! Gostaria de saber mais sobre o Intensivo Medicina ENEM da Plataforma Browflix."
+  }
+}
