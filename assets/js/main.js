@@ -34,7 +34,12 @@ class BrowflixLanding {
 
   async loadConfig() {
     try {
-      const response = await fetch("config/config.json");
+      // Detecta o caminho base automaticamente
+      const basePath = document.querySelector('script[src*="main.js"]')?.src.split('/assets/')[0] || '';
+      const configPath = basePath ? `${basePath}/config/config.json` : './config/config.json';
+      
+      console.log("🔍 Tentando carregar config de:", configPath);
+      const response = await fetch(configPath);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
