@@ -6,6 +6,7 @@
 class BrowflixLanding {
   constructor() {
     this.config = null;
+    this.cacheBustVersion = '2024110101'; // Versão para cache bust de imagens
     this.init();
   }
 
@@ -1722,7 +1723,7 @@ class BrowflixLanding {
                     }">
                         ${
                           student.image
-                            ? `<img src="${student.image}" alt="${student.name}" class="w-full h-full object-cover rounded-lg">`
+                            ? `<img src="${student.image}?v=${this.cacheBustVersion}" alt="${student.name}" class="w-full h-full object-cover rounded-lg">`
                             : "🎓"
                         }
                     </div>
@@ -1819,7 +1820,7 @@ class BrowflixLanding {
                 }">
                     ${
                       feature.banner
-                        ? `<img src="${feature.banner}" alt="${feature.title}" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>400x400px<br/><span class=\\'text-sm\\'>Banner não disponível</span></div>';" />`
+                        ? `<img src="${feature.banner}?v=${this.cacheBustVersion}" alt="${feature.title}" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>400x400px<br/><span class=\\'text-sm\\'>Banner não disponível</span></div>';" />`
                         : `<div class="text-gray-400 text-center p-4"><div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">400×400px</div><span class="text-sm">Banner não disponível</span></div>`
                     }
                 </div>
@@ -1853,7 +1854,7 @@ class BrowflixLanding {
                     <div class="w-full h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
                         ${
                           course.banner
-                            ? `<img src="${course.banner}" alt="${course.title}" class="w-full h-full object-cover" style="width: 320px; height: 240px;" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>Banner não disponível<br/><span class=\\'text-sm\\'>320x240px</span></div>';" />`
+                            ? `<img src="${course.banner}?v=${this.cacheBustVersion}" alt="${course.title}" class="w-full h-full object-cover" style="width: 320px; height: 240px;" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>Banner não disponível<br/><span class=\\'text-sm\\'>320x240px</span></div>';" />`
                             : `<div class="text-gray-400 text-center p-4">Banner não disponível<br/><span class="text-sm">Dimensões: 320x240px</span></div>`
                         }
                     </div>
