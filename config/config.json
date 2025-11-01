@@ -263,18 +263,12 @@
       {
         "icon": "🎓",
         "gradient": "from-blue-500 to-purple-600",
-        "tags": [
-          "960 na redação do ENEM",
-          "Mudança de mentalidade"
-        ]
+        "tags": ["960 na redação do ENEM", "Mudança de mentalidade"]
       },
       {
         "icon": "🎓",
         "gradient": "from-pink-500 to-red-500",
-        "tags": [
-          "960 na redação do ENEM",
-          "39/45 em Matemática"
-        ]
+        "tags": ["960 na redação do ENEM", "39/45 em Matemática"]
       },
       {
         "icon": "🎓",

@@ -35,9 +35,16 @@ class BrowflixLanding {
   async loadConfig() {
     try {
       // Detecta o caminho base automaticamente
-      const basePath = document.querySelector('script[src*="main.js"]')?.src.split('/assets/')[0] || '';
-      const configPath = basePath ? `${basePath}/config/config.json` : './config/config.json';
-      
+      const basePath =
+        document
+          .querySelector('script[src*="main.js"]')
+          ?.src.split("/assets/")[0] || "";
+      // Adiciona cache bust para forçar reload
+      const cacheBust = `?v=${Date.now()}`;
+      const configPath = basePath
+        ? `${basePath}/config/config.json${cacheBust}`
+        : `./config/config.json${cacheBust}`;
+
       console.log("🔍 Tentando carregar config de:", configPath);
       const response = await fetch(configPath);
       if (!response.ok) {
