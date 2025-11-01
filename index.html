@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Cache Control -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    
+
     <title id="page-title">Plataforma Browflix - Intensivo Medicina ENEM</title>
     <meta
       name="description"
@@ -20,7 +23,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=2024110101" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=2024110102" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
@@ -239,7 +242,7 @@
                 class="image-error-fallback absolute inset-0 flex items-center justify-center text-5xl"
               >
                 <img
-                  src="assets/images/banners/Plataforma-home.png?v=2024110101"
+                  src="assets/images/banners/Plataforma-home.png?v=2024110102"
                   alt="Didática Browflix"
                   class="absolute inset-0 w-full h-full object-cover"
                   onerror="this.style.display='none'; this.parentElement.innerHTML='📐✨';"
@@ -721,7 +724,7 @@
                 "
               >
                 <img
-                  src="assets/images/banners/Fundador.png?v=2024110101"
+                  src="assets/images/banners/Fundador.png?v=2024110102"
                   alt="Victor Brow - Fundador"
                   class="w-full h-full object-cover"
                   style="position: relative; z-index: 1"
@@ -814,8 +817,58 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js?v=2024110101"></script>
+    <script src="assets/js/main.js?v=2024110102"></script>
 
+    <!-- Script de detecção e limpeza de cache -->
+    <script>
+      // Versão atual do site
+      const SITE_VERSION = '2024110102';
+      
+      // Limpar service workers se existirem
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            console.log('🧹 Removendo service worker:', registration);
+            registration.unregister();
+          }
+        });
+      }
+      
+      // Verificar se é uma versão diferente da anterior
+      const lastVersion = localStorage.getItem('browflix_version');
+      
+      if (lastVersion !== SITE_VERSION) {
+        console.log('🔄 Nova versão detectada! Limpando cache...');
+        
+        // Limpar cache do localStorage
+        localStorage.clear();
+        
+        // Salvar nova versão
+        localStorage.setItem('browflix_version', SITE_VERSION);
+        
+        // Limpar sessionStorage também
+        sessionStorage.clear();
+        
+        // Forçar reload sem cache
+        if (lastVersion !== null) {
+          console.log('🔄 Forçando reload completo sem cache...');
+          
+          // Tentar limpar cache API se disponível
+          if ('caches' in window) {
+            caches.keys().then(function(names) {
+              for (let name of names) {
+                console.log('🧹 Limpando cache:', name);
+                caches.delete(name);
+              }
+            });
+          }
+          
+          // Forçar reload
+          window.location.href = window.location.href.split('?')[0] + '?nocache=' + Date.now();
+        }
+      }
+    </script>
+    
     <!-- Script de inicialização forçada -->
     <script>
       // Garantir que o conteúdo seja carregado mesmo se houver problemas

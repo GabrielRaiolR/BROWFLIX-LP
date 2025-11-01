@@ -6,7 +6,7 @@
 class BrowflixLanding {
   constructor() {
     this.config = null;
-    this.cacheBustVersion = '2024110101'; // Versão para cache bust de imagens
+    this.cacheBustVersion = "2024110102"; // Versão para cache bust de imagens
     this.init();
   }
 
@@ -47,12 +47,23 @@ class BrowflixLanding {
         : `./config/config.json${cacheBust}`;
 
       console.log("🔍 Tentando carregar config de:", configPath);
-      const response = await fetch(configPath);
+      
+      // Forçar requisição sem cache
+      const response = await fetch(configPath, {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0'
+        }
+      });
+      
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       this.config = await response.json();
       console.log("✅ Configuração carregada com sucesso:", this.config);
+      console.log("📊 Total de aprovados configurados:", this.config.approvedStudents?.students?.length);
     } catch (error) {
       console.error("❌ Erro ao carregar configuração:", error);
       console.log("🔄 Usando configuração padrão...");
