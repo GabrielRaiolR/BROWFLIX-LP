@@ -32,94 +32,66 @@
     "subtitle": "Assim como nossos alunos:",
     "students": [
       {
-        "name": "Raul Fonseca dos Reis Motta",
-        "university": "UFMA",
-        "secondary": "UEMA",
-        "image": "assets/images/aprovados/raul-fonseca.jpg",
+        "name": "Adryel Lucas",
+        "university": "UFPA",
+        "secondary": "UEPA",
+        "image": "assets/images/APROVADOS/UFPA/Adryel.png",
         "gradient": "from-blue-500 to-purple-600"
       },
       {
-        "name": "Jhonata Figueiredo Teixeira",
-        "university": "UFRJ",
-        "secondary": "",
-        "image": "assets/images/aprovados/jhonata-figueiredo.jpg",
+        "name": "Arthur Pinheiro",
+        "university": "UFPA",
+        "secondary": "5º UFRJ",
+        "image": "assets/images/APROVADOS/UFPA/Arthur Pinheiro.png",
         "gradient": "from-blue-500 to-purple-600"
       },
       {
-        "name": "Gabriel Oliveira Pinheiro da Silva",
-        "university": "UFF",
-        "secondary": "",
-        "image": "assets/images/aprovados/gabriel-oliveira.jpg",
+        "name": "Emerson José",
+        "university": "UFPA",
+        "secondary": "3º UFRJ",
+        "image": "assets/images/APROVADOS/UFPA/Emerson José.png",
         "gradient": "from-blue-500 to-purple-600"
       },
       {
-        "name": "Maria Clara Andrade da Silva Lourenço",
-        "university": "UERN",
-        "secondary": "",
-        "image": "assets/images/aprovados/maria-clara.jpg",
+        "name": "Maria Clara",
+        "university": "UFPA",
+        "secondary": "UFOPA",
+        "image": "assets/images/APROVADOS/UFPA/Maria Clara.png",
         "gradient": "from-pink-500 to-red-500"
       },
       {
-        "name": "Ana Amélia Chaves de Oliveira",
-        "university": "UFMG",
-        "secondary": "",
-        "image": "assets/images/aprovados/ana-amelia.jpg",
+        "name": "Anna Laís",
+        "university": "UFPA",
+        "secondary": "UFRJ",
+        "image": "assets/images/APROVADOS/UFPA/Anna Laís.png",
         "gradient": "from-pink-500 to-red-500"
       },
       {
-        "name": "Maria Fernanda",
-        "university": "UFES",
-        "secondary": "",
-        "image": "assets/images/aprovados/maria-fernanda.jpg",
+        "name": "Isabela Alves",
+        "university": "UFPA",
+        "secondary": "UEPA",
+        "image": "assets/images/APROVADOS/UFPA/Isabela Alves.png",
         "gradient": "from-blue-500 to-purple-600"
       },
       {
-        "name": "Isadora Pereira",
-        "university": "UFC",
-        "secondary": "",
-        "image": "assets/images/aprovados/isadora-pereira.jpg",
+        "name": "Mylena Gemaque",
+        "university": "UFPA",
+        "secondary": "2º UFSB",
+        "image": "assets/images/APROVADOS/UFPA/Mylena Gemaque.png",
         "gradient": "from-pink-500 to-red-500"
       },
       {
-        "name": "Isadora Oliveira",
-        "university": "UNIFAL",
-        "secondary": "",
-        "image": "assets/images/aprovados/isadora-oliveira.jpg",
-        "gradient": "from-blue-500 to-purple-600"
-      },
-      {
-        "name": "Isabela de Amorim",
-        "university": "UFVJM",
-        "secondary": "UNIOESTE",
-        "image": "assets/images/aprovados/isabela-amorim.jpg",
+        "name": "Juliana Almeida",
+        "university": "UFPA",
+        "secondary": "UFMA",
+        "image": "assets/images/APROVADOS/UFPA/Juliana Almeida.png",
         "gradient": "from-pink-500 to-red-500"
       },
       {
-        "name": "Maria Celeste Neres Rocha",
-        "university": "UFMG",
-        "secondary": "UFVJM",
-        "image": "assets/images/aprovados/maria-celeste.jpg",
-        "gradient": "from-blue-500 to-purple-600"
-      },
-      {
-        "name": "Francisco das Chagas",
-        "university": "UFDPAR",
-        "secondary": "UFCA",
-        "image": "assets/images/aprovados/francisco-chagas.jpg",
-        "gradient": "from-pink-500 to-red-500"
-      },
-      {
-        "name": "Alysson Felippe Carvalho",
-        "university": "UFU",
-        "secondary": "UFMG",
-        "image": "assets/images/aprovados/alysson-felippe.jpg",
-        "gradient": "from-blue-500 to-purple-600"
-      },
-      {
-        "name": "João Chammas",
-        "university": "UFRJ",
-        "secondary": "FAMINAS",
-        "image": "assets/images/aprovados/joao-chammas.jpg",
+        "name": "Vitória Sotão",
+        "university": "UFPA",
+        "secondary": "UEPA",
+        "image": "assets/images/APROVADOS/UFPA/Vitória Sotão.png",
         "gradient": "from-pink-500 to-red-500"
       }
     ]
@@ -291,12 +263,18 @@
       {
         "icon": "🎓",
         "gradient": "from-blue-500 to-purple-600",
-        "tags": ["960 na redação do ENEM", "Mudança de mentalidade"]
+        "tags": [
+          "960 na redação do ENEM",
+          "Mudança de mentalidade"
+        ]
       },
       {
         "icon": "🎓",
         "gradient": "from-pink-500 to-red-500",
-        "tags": ["960 na redação do ENEM", "39/45 em Matemática"]
+        "tags": [
+          "960 na redação do ENEM",
+          "39/45 em Matemática"
+        ]
       },
       {
         "icon": "🎓",
