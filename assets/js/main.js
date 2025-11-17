@@ -1571,6 +1571,7 @@ class BrowflixLanding {
             price: "12x R$ 106,48",
             installments: "ou R$ 1100 à vista",
             features: [
+              "AULAS AO VIVO 19h às 22h de Terça Feira(Lembrando que elas ficam gravadas) Início: 14/01/2026",
               "Curso de Matemática Básica",
               "Curso de Matemática básica Pro Enem",
               "Curso de Funções e financeira",
