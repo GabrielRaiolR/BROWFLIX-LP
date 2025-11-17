@@ -1303,7 +1303,7 @@ class BrowflixLanding {
             videoUrl:
               "https://vimeo.com/1137235655/4ffd953c03?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789" ou "https://www.youtube.com/watch?v=abc123"
             videoType: "vimeo", // "vimeo" ou "youtube"
-            thumbnail: "assets/images/thumbnails/vimeo-aulas-vivo.png", // Exemplo: "assets/images/thumbnails/aulas-vivo-thumbnail.png"
+            thumbnail: "assets/images/thumbnails/vimeo-aulas-ao-vivo.png", // Exemplo: "assets/images/thumbnails/aulas-vivo-thumbnail.png"
           },
           {
             icon: "🎓",
@@ -1525,162 +1525,195 @@ class BrowflixLanding {
       pricing: {
         plans: [
           {
-            name: "Plataforma Browflix",
-            subtitle: "Acesso até o ENEM 2026",
+            name: "Plataforma Browflix <br>PLANO ANUAL <span class='text-red-500'>GRAVADO!!</span>",
+            subtitle: "",
             icon: "PB",
-            color: "blue",
-            price: "R$ 3.000,00",
-            installments: "ou 12x de R$ 299,41",
+            color: "green",
+            highlighted: false,
+            originalPrice: "De R$ 1.500,00 por:",
+            price: "12x R$ 67,34",
+            installments: "ou R$ 700 à vista",
+
             features: [
-              "Curso de Matemática",
-              "Curso de Física",
-              "Curso de Biologia",
-              "Curso de Química",
-              "Curso de Humanas",
-              "Curso de Redação",
-              "Curso de História",
-              "Curso de Sociologia",
-              "Curso de Filosofia",
-              "Curso de Geografia",
+              "Curso de Matemática Básica",
+              "Curso de Matemática básica Pro Enem",
+              "Curso de Funções e financeira",
+              "Curso de Análise combinatória",
+              "Curso de Probabilidade",
+              "Curso de Geometria Plana e espacial",
+              "Projeto Iniciante (para alunos com menos de 30 acertos)",
+              "Projeto Elite (para alunos 35+ em matemática)",
+              "Curso de HABILIDADES ENEM COM BROW",
+              "Curso de Revisão Espaçada Garantida",
             ],
+
             bonuses: [
               "Garantia 7 dias",
-              "Concentração e Foco",
-              "Blindagem Emocional",
-              "Rotina de Campeão",
-              "4 Créditos de correção de redação por mês até o ENEM 2025",
+              "Curso de Linguagens Gravado",
+              "Curso nas Férias (revisão geral)",
+              "Desconto de 50% no curso Desumanidades",
+              "50% de Desconto no Curso de CN gravado",
             ],
             button: {
               text: "Quero me matricular agora",
               style: "outline",
+              url: "https://chk.eduzz.com/E9OO463K9B", // Exemplo: "https://checkout.exemplo.com/plano-anual-gravado"
             },
           },
           {
-            name: "INTENSIVO Medicina ENEM",
-            subtitle: "PLATAFORMA BROWFLIX",
-            icon: "IM",
+            name: "Plataforma Browflix <br> PLANO ANUAL AO VIVO",
+            subtitle: "Acesso até o ENEM 2026",
+            icon: "PB",
             color: "blue",
             highlighted: true,
-            badge: "INTENSIVO MEDICINA ENEM 2025",
+            badge: "O PLANO MAIS ESCOLHIDO",
             originalPrice: "De R$ 3.000,00 por:",
-            price: "12x R$ 119,76",
-            installments: "ou R$ 1200 à vista",
+            price: "12x R$ 106,48",
+            installments: "ou R$ 1100 à vista",
             features: [
-              "Curso de Matemática",
-              "Curso de Física",
-              "Curso de Biologia",
-              "Curso de Química",
-              "Curso de Humanas",
-              "Curso de Redação",
-              "Curso de História",
-              "Curso de Sociologia",
-              "Curso de Filosofia",
-              "Curso de Geografia",
+              "Curso de Matemática Básica",
+              "Curso de Matemática básica Pro Enem",
+              "Curso de Funções e financeira",
+              "Curso de Análise combinatória",
+              "Curso de Probabilidade",
+              "Curso de Geometria Plana e Espacial",
+              "Projeto Iniciante (para alunos com menos de 30 acertos)",
+              "Projeto Elite (para alunos 35+ em matemática)",
+              "Curso de Habilidades ENEM com Brow",
+              "Curso de Revisão Espaçada Garantida",
+              "Curso de Ferias do Brow",
             ],
             bonuses: [
               "Garantia 7 dias",
-              "Concentração e Foco",
-              "Blindagem Emocional",
-              "Rotina de Campeão",
-              "4 Créditos de correção de redação por mês até o ENEM 2025",
-              "Material Didático",
-              "Mapa de progresso competitivo",
-              "Plataforma de Redação",
-              "Masterclass: Como estudar em Alta Performance",
-              "Curso de Redação com Milla Borges",
-              "Curso de Gramática para Redação",
+              "Curso de Linguagens Gravado",
+              "Curso nas Férias (revisão geral)",
+              "Desconto de 50% no curso Desumanidades",
+              "50% de Desconto no Curso de CN gravado",
+              "Aulas Gravadas de 2025",
+              "Simulados mensais com relatórios",
+              "Grupo de dúvidas com 25 acadêmicos de Medicina",
+              "Desconto no material físico",
             ],
             button: {
               text: "Quero me matricular agora",
               style: "primary",
+              url: "https://chk.eduzz.com/39ZQP8JZ9E", // Exemplo: "https://checkout.exemplo.com/plano-anual-ao-vivo"
             },
           },
           {
-            name: "Plataforma Browflix PREMIUM",
-            subtitle: "Acesso até o ENEM 2027",
-            icon: "PP",
+            name: "CURSO DESUMANIDADES",
+            subtitle: "Acesso até o ENEM 2026",
+            icon: "DH",
             color: "blue",
-            price: "R$ 4.500,00",
-            installments: "ou 12x de R$ 449,11",
+            highlighted: false,
+            originalPrice: "De R$ 1.200,00 por:",
+            price: "12x R$ 57,72",
+            installments: "ou R$ 600 à vista",
+
             features: [
-              "Curso de Matemática",
-              "Curso de Física",
-              "Curso de Biologia",
-              "Curso de Química",
+              "Aulas ao vivo (quarta e quinta à noite)",
               "Curso de Humanas",
-              "Curso de Redação",
               "Curso de História",
               "Curso de Sociologia",
               "Curso de Filosofia",
               "Curso de Geografia",
             ],
+
             bonuses: [
               "Garantia 7 dias",
-              "Concentração e Foco",
-              "Blindagem Emocional",
-              "Rotina de Campeão",
-              "6 Créditos de correção de redação por mês até o ENEM 2027",
-              "Material Didático Premium",
-              "Mentorias individuais",
+              "Curso de Linguagens gravado",
+              "Aulas Gravadas de 2025",
+              "Simulados corrigidos por mês até o ENEM 2025",
             ],
             button: {
               text: "Quero me matricular agora",
               style: "outline",
+              url: "https://chk.eduzz.com/6W48N3OO0Z", // Exemplo: "https://checkout.exemplo.com/desumanidades"
+            },
+          },
+          {
+            name: "PLANO MENSAL",
+            subtitle: "span class='text-green-500'>Recorrente</span>",
+            icon: "PM",
+            color: "blue",
+            isRecurring: true,
+            isCompact: true, // Plano menor/compacto
+            price: "R$ 210,00",
+            installments: "por mês",
+            features: [
+              "Curso de Matemática Básica",
+              "Matemática básica Pro Enem",
+              "Funções e financeira",
+              "Análise combinatória",
+              "Probabilidade",
+              "Geometria Plana e Espacial",
+              "Projeto Iniciante (alunos com menos de 30 acertos)",
+              "Projeto Elite (alunos 35+ em matemática)",
+              "Habilidades ENEM com Brow",
+              "Revisão espaçada garantida",
+              "Garantia de 7 dias",
+            ],
+            bonuses: [
+              "Cobrança mensal automática",
+              "Cancele quando quiser",
+              "Curso de Linguagens Gravado",
+              "Curso nas Férias (revisão geral)",
+              "50% de Desconto no curso Desumanidades",
+              "50% de Desconto no Curso de CN Gravado",
+            ],
+            button: {
+              text: "Assinar agora",
+              style: "outline",
+              url: "https://chk.eduzz.com/R9JJ4QDE9X", // Exemplo: "https://checkout.exemplo.com/plano-mensal"
             },
           },
         ],
       },
       miniCourses: {
-        title: "Cursos Complementares",
+        title: "COMBO DE CURSOS",
         subtitle: "Expanda ainda mais seus conhecimentos",
         courses: [
           {
-            title: "Curso Básico de Matemática",
+            title: "COMBO",
             icon: "📊",
-            price: "R$ 199,00",
+            price: "aguarde",
             gradient: "blue-dark",
           },
           {
-            title: "Física para Iniciantes",
+            title: "COMBO",
             icon: "⚛️",
-            price: "R$ 179,00",
+            price: "aguarde",
             gradient: "blue-medium",
           },
           {
-            title: "Química Orgânica",
+            title: "COMBO",
             icon: "🧪",
-            price: "R$ 189,00",
+            price: "aguarde",
             gradient: "blue-light",
           },
           {
-            title: "Biologia Celular",
+            title: "COMBO",
             icon: "🦠",
-            price: "R$ 169,00",
+            price: "aguarde",
             gradient: "blue-dark",
           },
           {
-            title: "Redação Nota 1000",
+            title: "COMBO",
             icon: "✍️",
-            price: "R$ 249,00",
+            price: "aguarde",
             gradient: "yellow",
           },
           {
-            title: "História do Brasil",
+            title: "COMBO",
             icon: "📚",
-            price: "R$ 159,00",
+            price: "aguarde",
             gradient: "blue-medium",
           },
           {
-            title: "Geografia Mundial",
+            title: "COMBO",
             icon: "🌍",
-            price: "R$ 159,00",
+            price: "aguarde",
             gradient: "blue-light",
-          },
-          {
-            title: "Inglês Instrumental",
-            icon: "🗣️",
-            price: "R$ 199,00",
-            gradient: "yellow",
           },
         ],
       },
@@ -1688,10 +1721,19 @@ class BrowflixLanding {
         title:
           'Quem é<br /><span class="text-blue-footer">Victor "Brow"?</span>',
         description: [
-          '<strong>Victor "Brow"</strong> é Diretor e Fundador do Curso Matemática Brow, empresa que já aprovou mais de <strong>500 alunos</strong> em medicina em universidades públicas e privadas.',
-          "Especialista em <strong>DIDÁTICA MÁGICA</strong> há mais de 15 anos e desenvolvedor do método que já transformou a vida de milhares de estudantes em todo o Brasil.",
-          "Autor de diversos livros sobre técnicas de estudo e metodologias de ensino, Brow é reconhecido nacionalmente por sua capacidade única de simplificar conteúdos complexos.",
-          "<strong>Missão:</strong> Democratizar o acesso ao ensino de qualidade através de uma didática revolucionária que garante resultados.",
+          '<strong>Victor "Brow"</strong> é educador, estrategista e comunicador — tudo ao mesmo tempo. Não é o professor tradicional: é o mentor que senta ao lado, conecta conteúdo com vida real e transforma estudo em propósito.',
+
+          "Domina <strong>combinatória, probabilidade e geometria</strong> como quem respira; explica <strong>funções, assíntotas, logaritmos e trigonometria</strong> como quem conta história. Leva o aluno ao <strong>800+</strong> não pelo decorar, mas pelo entender de verdade.",
+
+          "Já foram mais de <strong>1000 aprovações em Medicina</strong> e mais de <strong>800 notas acima de 800</strong> em Matemática. Uma cultura que virou referência nacional entre cursos independentes.",
+
+          'Brow não vende aula — vende <strong>transformação de identidade</strong>:<br>"Quem aprende com o Brow não é qualquer aluno. Quem aprende com o Brow vira alguém que raciocina."',
+
+          "Revolucionador da didática do ENEM, criou método, linguagem, comunidade e um estilo próprio de ensino que mudou a vida de milhares de estudantes.",
+
+          "É o ponto onde <strong>a matemática encontra o sonho</strong> e onde <strong>resultado encontra sentido</strong>.",
+
+          "Assim nasceu a <strong>Browlândia</strong> — um ecossistema de confiança, ritmo, pertencimento e alta performance.<br><strong>Espero que você seja o próximo.</strong>",
         ],
         image: "assets/images/banners/Fundador.png",
       },
@@ -2733,22 +2775,47 @@ class BrowflixLanding {
     const pricingHTML = config.plans
       .map(
         (plan) => `
-            <div class="pricing-card id ${
-              plan.highlighted ? "highlighted" : ""
-            }">
+            <div class="pricing-card ${plan.highlighted ? "highlighted" : ""} ${
+          plan.isCompact ? "pricing-card-compact" : ""
+        }">
                 ${
                   plan.badge
                     ? `<div class="pricing-badge">${plan.badge}</div>`
                     : ""
                 }
+                ${
+                  plan.isRecurring
+                    ? `<div class="pricing-badge" style="background: #10b981; margin-bottom: 0.5rem;">RECORRENTE</div>`
+                    : ""
+                }
                 
-                <div class="text-center mb-8 ${plan.highlighted ? "mt-8" : ""}">
-                    <div class="pricing-icon">${plan.icon}</div>
-                    <h3 class="pricing-title">${plan.name}</h3>
-                    <p class="pricing-subtitle">${plan.subtitle}</p>
+                <div class="text-center ${plan.isCompact ? "mb-4" : "mb-8"} ${
+          plan.highlighted ? "mt-8" : ""
+        }">
+                    <div class="pricing-icon" ${
+                      !plan.highlighted && plan.color
+                        ? `style="background: ${
+                            plan.color === "blue"
+                              ? "var(--color-primary)"
+                              : plan.color === "green"
+                              ? "#10b981"
+                              : plan.color === "purple"
+                              ? "#8b5cf6"
+                              : "#2563eb"
+                          }; color: var(--text-white);"`
+                        : ""
+                    }>${plan.icon}</div>
+                    <h3 class="pricing-title ${
+                      plan.isCompact ? "text-lg" : ""
+                    }">${plan.name}</h3>
+                    <p class="pricing-subtitle ${
+                      plan.isCompact ? "text-sm" : ""
+                    }">${plan.subtitle}</p>
                 </div>
 
-                <div class="pricing-features">
+                <div class="pricing-features ${
+                  plan.isCompact ? "space-y-2" : ""
+                }">
                     ${plan.features
                       .map(
                         (feature) => `
@@ -2757,10 +2824,14 @@ class BrowflixLanding {
                               plan.highlighted
                                 ? "text-green-400"
                                 : "text-green-500"
-                            }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            } ${
+                          plan.isCompact ? "w-4 h-4" : ""
+                        }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <polyline points="20 6 9 17 4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
                             </svg>
-                            <span class="pricing-feature-text">${feature}</span>
+                            <span class="pricing-feature-text ${
+                              plan.isCompact ? "text-xs" : ""
+                            }">${feature}</span>
                         </div>
                     `
                       )
@@ -2770,8 +2841,12 @@ class BrowflixLanding {
                       .map(
                         (bonus) => `
                         <div class="pricing-bonus">
-                            <div class="pricing-bonus-icon">🎁</div>
-                            <span class="pricing-feature-text">${bonus}</span>
+                            <div class="pricing-bonus-icon ${
+                              plan.isCompact ? "text-sm" : ""
+                            }">🎁</div>
+                            <span class="pricing-feature-text ${
+                              plan.isCompact ? "text-xs" : ""
+                            }">${bonus}</span>
                         </div>
                     `
                       )
@@ -2781,16 +2856,24 @@ class BrowflixLanding {
                 <div class="pricing-price">
                     ${
                       plan.originalPrice
-                        ? `<p class="pricing-original">${plan.originalPrice}</p>`
+                        ? `<p class="pricing-original ${
+                            plan.highlighted ? "" : "pricing-original-light"
+                          }">${plan.originalPrice}</p>`
                         : ""
                     }
                     <div class="pricing-amount">${plan.price}</div>
                     <p class="pricing-installments">${plan.installments}</p>
                 </div>
 
-                <a href="#planos" class="pricing-button ${
-                  plan.button?.style || "outline"
-                }">
+                <a href="${
+                  plan.button?.url || plan.button?.checkoutUrl || "#planos"
+                }" 
+                   ${
+                     plan.button?.url || plan.button?.checkoutUrl
+                       ? 'target="_blank" rel="noopener noreferrer"'
+                       : ""
+                   }
+                   class="pricing-button ${plan.button?.style || "outline"}">
                     ${plan.button?.text}
                 </a>
             </div>

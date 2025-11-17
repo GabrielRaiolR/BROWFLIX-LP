@@ -597,9 +597,38 @@ body {
 
 @media (min-width: 1024px) {
   .pricing-grid {
-    grid-template-columns: 1fr 1.4fr 1fr;
+    grid-template-columns: 1fr 1.4fr 1fr 0.8fr;
     align-items: start;
   }
+}
+
+.pricing-card-compact {
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.pricing-card-compact .pricing-features {
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card-compact .pricing-feature {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.pricing-card-compact .pricing-bonus {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.pricing-card-compact .pricing-icon {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.pricing-card-compact .pricing-amount {
+  font-size: 1.5rem;
 }
 
 .pricing-card {
@@ -608,7 +637,10 @@ body {
   padding: 2rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   border: 2px solid var(--border-gray-200);
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: auto;
 }
 
 .pricing-card.highlighted {
@@ -723,11 +755,17 @@ body {
 .pricing-price {
   text-align: center;
   margin-bottom: 1.5rem;
+  margin-top: auto;
 }
 
 .pricing-original {
   color: #bfdbfe;
   margin-bottom: 0.5rem;
+}
+
+.pricing-original-light {
+  color: #6b7280;
+  font-size: 0.9rem;
 }
 
 .pricing-amount {
@@ -751,6 +789,7 @@ body {
   padding: 0.75rem;
   border-radius: 9999px;
   font-weight: 500;
+  margin-top: auto;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 }
