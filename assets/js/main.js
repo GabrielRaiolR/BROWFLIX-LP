@@ -13,7 +13,7 @@ class BrowflixLanding {
   async init() {
     try {
       console.log("🚀 Iniciando Plataforma Browflix...");
-      
+
       // Carregar configuração
       await this.loadConfig();
 
@@ -27,8 +27,8 @@ class BrowflixLanding {
       this.initResponsiveHandling();
 
       // Marcar como carregado
-      document.body.classList.add('js-loaded');
-      
+      document.body.classList.add("js-loaded");
+
       console.log("✅ Plataforma Browflix carregada com sucesso!");
       console.log("📦 Versão:", this.cacheBustVersion);
     } catch (error) {
@@ -36,9 +36,9 @@ class BrowflixLanding {
       // Forçar uso da configuração padrão em caso de erro
       this.config = this.getDefaultConfig();
       this.applyConfig();
-      
+
       // Marcar como carregado mesmo com erro
-      document.body.classList.add('js-loaded');
+      document.body.classList.add("js-loaded");
     }
   }
 
@@ -49,7 +49,7 @@ class BrowflixLanding {
         document
           .querySelector('script[src*="main.js"]')
           ?.src.split("/assets/")[0] || "";
-      
+
       // Usar a mesma versão do cache bust para consistência
       const cacheBust = `?v=${this.cacheBustVersion}`;
       const configPath = basePath
@@ -72,27 +72,32 @@ class BrowflixLanding {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const loadedConfig = await response.json();
-      
+
       // Verificar se o config carregado tem a versão correta
       const configVersion = loadedConfig._version || "0";
       const expectedVersion = this.cacheBustVersion;
-      
+
       console.log("🔍 Versão do config carregado:", configVersion);
       console.log("🔍 Versão esperada:", expectedVersion);
-      
+
       // Se não tiver a versão correta ou não tiver o badge, usar config padrão
       if (configVersion !== expectedVersion || !loadedConfig.hero?.badge) {
-        console.warn("⚠️ Config antigo ou inválido detectado! Usando configuração padrão atualizada.");
+        console.warn(
+          "⚠️ Config antigo ou inválido detectado! Usando configuração padrão atualizada."
+        );
         console.warn("   Config carregado tem versão:", configVersion);
         console.warn("   Versão esperada:", expectedVersion);
         this.config = this.getDefaultConfig();
       } else {
         this.config = loadedConfig;
-        console.log("✅ Configuração carregada com sucesso! Versão:", configVersion);
+        console.log(
+          "✅ Configuração carregada com sucesso! Versão:",
+          configVersion
+        );
       }
-      
+
       console.log(
         "📊 Total de aprovados configurados:",
         this.config.approvedStudents?.students?.length
@@ -112,7 +117,7 @@ class BrowflixLanding {
       site: {
         title: "Plataforma Browflix - Intensivo Medicina ENEM",
         description:
-          "Didática mágica, resultados garantidos. A única plataforma do Brasil que GARANTE seu aprendizado.",
+          "Brow é polêmico? Sim! Mas não tem melhor que ele em sala de aula.",
         logo: {
           text: "MATEMÁTICA BROW",
           subtitle: "Preparatório para o ENEM",
@@ -137,7 +142,7 @@ class BrowflixLanding {
           "Victor Brow transformou sua paixão por ensinar em uma metodologia que já aprovou <strong>mais de 500 alunos</strong> em Medicina. Agora é a <strong>sua vez</strong> de fazer parte dessa história.",
         button: {
           text: "Quero ser o proximo aprovado em Medicina",
-          url: "#contato",
+          url: "#planos",
         },
       },
       approvedStudents: {
@@ -1208,36 +1213,45 @@ class BrowflixLanding {
         ],
       },
       didatica: {
-        title: "Didática mágica,<br />resultados<br />garantidos!",
+        title:
+          "Brow é polêmico?<br />Sim! Mas não tem melhor que ele em sala de aula.✨",
         description1:
-          "O maior diferencial da Plataforma Browflix é a didática especial e mágica do professor Victor \"Brow\".",
+          "O maior diferencial (além de questões autorais, projetos individuais e monitoria 24h) é a super didática do Brow",
         description2:
           "O aluno tem a garantia total de que vai conseguir aprender e absorver as oportunidades, aplicando na prova do ENEM de forma eficaz.",
         banner: "assets/images/banners/Plataforma-home.png",
         button: {
-          text: "Quero me matricular",
-          url: "#contato",
+          text: "Quero me matricular →",
+          url: "#planos",
         },
       },
       learningObjectives: {
         title:
-          'O que você vai aprender no<br /><span class="text-blue-600">Intensivo da Plataforma Browflix?</span>',
+          'O que você terá ao Adquirir a<br /><span class="text-blue-600">Plataforma Browflix?</span>',
         objectives: [
           {
             number: 1,
-            text: "Dominar todas as<br />matérias do ENEM",
+            text: "📚 Domínio de toda a Matemática pro Enem",
+            description:
+              "Você deve estudar de forma direcionada pra prova, e saber o que vai e como cai!! E o Brow mastiga isso pra você!",
           },
           {
             number: 2,
-            text: "Resolver questões complexas<br />com facilidade e rapidez",
+            text: "⚡ Resolução Rápida e Eficiente",
+            description:
+              "Aprenda com o Brow a destrinchar questões complexas de forma simples e veloz, usando técnicas exclusivas que deixam você sempre um passo à frente da prova.",
           },
           {
             number: 3,
-            text: "Gestão do tempo e produtividade<br />com técnicas específicas para<br />preparação para o ENEM",
+            text: "⏱️ Gestão de Tempo Inteligente",
+            description:
+              "Domine, com o Brow, os métodos de produtividade e organização que realmente funcionam para quem quer resultado de verdade no ENEM — sem enrolação, sem desgaste desnecessário.",
           },
           {
             number: 4,
-            text: "Estratégias de estudo<br />validadas por centenas de<br />aprovados em Medicina",
+            text: "🎯 Estratégias Validadas",
+            description:
+              "Métodos de estudo comprovados por centenas de estudantes aprovados em Medicina",
           },
         ],
         button: {
@@ -1252,38 +1266,58 @@ class BrowflixLanding {
             icon: "👤",
             title: "Área do aluno exclusiva",
             gradient: "from-blue-500 to-purple-600",
+            videoUrl:
+              "https://vimeo.com/1137227684/9bd3505f5d?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
+            thumbnail: "assets/images/thumbnails/vimeo-thumbnail.png", // Exemplo: "assets/images/thumbnails/vimeo-thumbnail.jpg" - Adicione o caminho da sua imagem aqui
           },
           {
             icon: "🎬",
             title: "Aulas ultradidáticas com qualidade de cinema",
             gradient: "from-pink-500 to-red-500",
+            videoUrl:
+              "https://www.youtube.com/live/qtFCv-yk8-Y?si=K6S6LH8V9VXzohYW", // Exemplo: "https://www.youtube.com/watch?v=abc123xyz"
+            videoType: "youtube", // "vimeo" ou "youtube"
           },
           {
             icon: "📱",
             title:
               "Aplicativo que permite você baixar as aulas para assistir offline sem gastar seu pacote de dados",
             gradient: "from-cyan-500 to-blue-500",
+            banner: "assets/images/thumbnails/aplicativo-thumbnail.png",
           },
           {
             icon: "📝",
             title:
               "Listas de questões selecionadas e resolvidas com uma didática impecável",
             gradient: "from-green-500 to-teal-500",
+            videoUrl:
+              "https://vimeo.com/1137227684/9bd3505f5d?share=copy&fl=sv&fe=ci#t=579", // Exemplo: "https://vimeo.com/123456789" ou "https://www.youtube.com/watch?v=abc123"
+            videoType: "vimeo", // "vimeo" ou "youtube"
+            thumbnail: "assets/images/thumbnails/vimeo-material-didatico.png", // Exemplo: "assets/images/thumbnails/questoes-thumbnail.png"
           },
           {
             icon: "📡",
             title: "Aulas Ao Vivo até o ENEM 2025",
             gradient: "from-pink-500 to-yellow-500",
+            videoUrl:
+              "https://vimeo.com/1137235655/4ffd953c03?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789" ou "https://www.youtube.com/watch?v=abc123"
+            videoType: "vimeo", // "vimeo" ou "youtube"
+            thumbnail: "assets/images/thumbnails/vimeo-aulas-vivo.png", // Exemplo: "assets/images/thumbnails/aulas-vivo-thumbnail.png"
           },
           {
             icon: "🎓",
             title: "Monitorias e tutorias com aprovados em Medicina",
             gradient: "from-teal-500 to-purple-500",
+            videoUrl:
+              "https://vimeo.com/1137236691/7955cab6f5?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789" ou "https://www.youtube.com/watch?v=abc123"
+            videoType: "vimeo", // "vimeo" ou "youtube"
+            thumbnail: "assets/images/thumbnails/vimeo-grupo-de-duvidas.png", // Exemplo: "assets/images/thumbnails/monitorias-thumbnail.png"
           },
         ],
         button: {
           text: "Quero ter acesso a tudo isso",
-          url: "#contato",
+          url: "#planos",
         },
       },
       courses: {
@@ -1294,57 +1328,84 @@ class BrowflixLanding {
             title: "Matemática Básica",
             subtitle: "Brow Kai",
             banner: "assets/images/banners/Matematica Básica.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl:
+              "https://vimeo.com/1137237488/787b47b855?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Matemática Básica para o ENEM",
             subtitle: "The last of Brow",
             banner: "assets/images/banners/Matematica Basica Para o ENEM.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl:
+              "https://vimeo.com/1137237717/2fecb40056?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Funções e Financeira",
             subtitle: "Matemática Financeira",
             banner: "assets/images/banners/Funções e Financeira.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl: "", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Análise Combinatória",
             subtitle: "e Probabilidade",
             banner:
               "assets/images/banners/Análise Combinatória e Probabilidade.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl: "", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Geometria Plana",
             subtitle: "e Espacial",
             banner: "assets/images/banners/Geometria Plana e Espacial.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl: "", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Curso de Revisão",
             subtitle: "Ringue do Brow",
             banner: "assets/images/banners/Curso de Revisão.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl:
+              "https://vimeo.com/1137227684/9bd3505f5d?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Curso nas Férias do Brow",
             subtitle: "Curtindo o Verão",
             banner: "assets/images/banners/Curso de Ferias.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl:
+              "https://vimeo.com/1137239390/b1ef83bdfb?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Projeto Iniciante",
             subtitle: "Mentoria Guerra",
             banner: "assets/images/banners/Projeto Iniciante.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl:
+              "https://vimeo.com/1137240623/1963e408f3?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "Projeto Elite",
             subtitle: "Esquedrão especial do brow",
             banner: "assets/images/banners/Projeto Elite.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl:
+              "https://vimeo.com/1137240623/1963e408f3?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
           {
             title: "H.E.C.B",
             subtitle: "(Habilidades ENEM com o Brow)",
             banner: "assets/images/banners/HECB.png", // Adicione aqui o caminho do banner (320x240px)
+            videoUrl:
+              "https://vimeo.com/1137240623/1963e408f3?share=copy&fl=sv&fe=ci", // Exemplo: "https://vimeo.com/123456789"
+            videoType: "vimeo", // "vimeo" ou "youtube"
           },
         ],
         button: {
           text: "Quero ter acesso aos cursos agora",
-          url: "#contato",
+          url: "#planos",
         },
       },
       testimonials: {
@@ -1354,27 +1415,30 @@ class BrowflixLanding {
           'A <span class="text-blue-600">opinião</span> de quem já está vivendo <span class="text-blue-600">o que você ainda sonha</span>.',
         testimonials: [
           {
-            icon: "🎓",
-            gradient: "from-blue-500 to-purple-600",
-            tags: ["960 na redação do ENEM", "Mudança de mentalidade"],
+            avatar: "assets/images/testemunhos/arthur-zvez-avatar.png", // Dimensões: 80x80px (quadrado)
+            name: "Arthur Zvez",
+            rating: 5, // Número de estrelas (1 a 5)
+            comment:
+              "Posso afirmar que o Brow NUNCA me deixou na mão. Sem ele meu resultado não seria possivel.",
           },
           {
-            icon: "🎓",
-            gradient: "from-pink-500 to-red-500",
-            tags: ["960 na redação do ENEM", "39/45 em Matemática"],
+            avatar: "assets/images/testemunhos/tiago-santos-avatar.png", // Dimensões: 80x80px (quadrado)
+            name: "Tiago Santos",
+            rating: 5, // Número de estrelas (1 a 5)
+            comment:
+              "Fui o 2º aprovado no ENEM 2025 na UFPA e UEPA, e o Brow foi fundamental para isso! Hoje estou cursando Medicina e posso afirmar que o Brow é o melhor investimento que fiz.",
           },
           {
-            icon: "🎓",
-            gradient: "from-cyan-500 to-blue-500",
-            tags: [
-              "+150 acertos em menos de 1 ano",
-              "Aprendi a gostar das matérias",
-            ],
+            avatar: "assets/images/testemunhos/arthur-pinheiro-avatar.png", // Dimensões: 80x80px (quadrado)
+            name: "Arthur Pinheiro",
+            rating: 5, // Número de estrelas (1 a 5)
+            comment:
+              "Fui o 5º aprovado no ENEM 2025 na UEPA, e o Brow foi fundamental para isso! Hoje estou cursando Medicina e posso afirmar que o Brow é o melhor investimento que fiz.",
           },
         ],
         button: {
           text: "Quero ser o próximo aprovado!",
-          url: "#contato",
+          url: "#planos",
         },
       },
       bonus: {
@@ -1382,25 +1446,26 @@ class BrowflixLanding {
           'Inscreva-se nessa turma e<br /><span class="text-accent">garanta</span><br /><span class="text-accent">mais 3 presentes exclusivos</span>',
         bonuses: [
           {
-            title: "Bônus 02 - 3 melhores de correção de redação",
+            title: "Bônus 01 - Curso Gravado de CN",
             description:
-              "Aprenda com os melhores exemplos de redação corrigidos por especialistas. Material exclusivo que vai elevar seu nível de escrita para o ENEM.",
-            icon: "✍️",
+              "Curso de Ciencias da Natureza Completo Gravado com aulas de Física, Química e Biologia.",
+            icon: "🔬",
             gradient: "from-blue-500 to-purple-600",
             price: "GRÁTIS",
           },
           {
-            title: "Bônus 03 - Gramática para Redação",
+            title: "Bônus 02 - Curso das férias Gravado",
             description:
-              "Domine a gramática essencial para uma redação nota 1000. Conteúdo focado nas principais dificuldades dos estudantes.",
-            icon: "📖",
+              "Ganhe meu curso de completo de todas as matérias gravado para você aproveitar as férias.",
+            icon: "🎓",
             gradient: "from-pink-500 to-red-500",
             price: "GRÁTIS",
           },
           {
-            title: "Bônus 04 - Masterclass: Como estudar com Mira Sargent",
+            title:
+              "Bônus 03 -  50% De desconto no Desumanidades (curso de humanas que mais aprova no Norte do Brasil)",
             description:
-              "Metodologia exclusiva de uma das maiores especialistas em técnicas de estudo do Brasil. Transforme sua forma de aprender.",
+              "Nosso carro chefe dos cursos do Brow! Aproveite 50% de desconto para você aproveitar o melhor curso de humanas que mais aprova no Norte do Brasil.",
             icon: "🎯",
             gradient: "from-cyan-500 to-blue-500",
             price: "GRÁTIS",
@@ -1410,7 +1475,7 @@ class BrowflixLanding {
           "Tudo isso <strong>grátis</strong> para você,<br />porque é um <strong>presente!</strong>",
         button: {
           text: "Quero garantir meus bônus agora",
-          url: "#contato",
+          url: "#planos",
         },
       },
       contact: {
@@ -1445,8 +1510,8 @@ class BrowflixLanding {
             },
             {
               type: "text",
-              name: "profissao",
-              placeholder: "Profissão/Área de atuação",
+              name: "Curso que deseja fazer",
+              placeholder: "Matemática, Física, Química, Biologia, etc.",
               required: true,
             },
           ],
@@ -1621,9 +1686,9 @@ class BrowflixLanding {
       },
       pedroAssaad: {
         title:
-          "Quem é<br /><span class=\"text-blue-footer\">Victor \"Brow\"?</span>",
+          'Quem é<br /><span class="text-blue-footer">Victor "Brow"?</span>',
         description: [
-          "<strong>Victor \"Brow\"</strong> é Diretor e Fundador do Curso Matemática Brow, empresa que já aprovou mais de <strong>500 alunos</strong> em medicina em universidades públicas e privadas.",
+          '<strong>Victor "Brow"</strong> é Diretor e Fundador do Curso Matemática Brow, empresa que já aprovou mais de <strong>500 alunos</strong> em medicina em universidades públicas e privadas.',
           "Especialista em <strong>DIDÁTICA MÁGICA</strong> há mais de 15 anos e desenvolvedor do método que já transformou a vida de milhares de estudantes em todo o Brasil.",
           "Autor de diversos livros sobre técnicas de estudo e metodologias de ensino, Brow é reconhecido nacionalmente por sua capacidade única de simplificar conteúdos complexos.",
           "<strong>Missão:</strong> Democratizar o acesso ao ensino de qualidade através de uma didática revolucionária que garante resultados.",
@@ -1701,88 +1766,88 @@ class BrowflixLanding {
     );
 
     // Aplicar outras seções com proteção contra erros
-    try { 
-      this.renderApprovedStudents(); 
+    try {
+      this.renderApprovedStudents();
       console.log("✅ Seção Aprovados renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Aprovados:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Aprovados:", e);
     }
-    
-    try { 
-      this.renderDidatica(); 
+
+    try {
+      this.renderDidatica();
       console.log("✅ Seção Didática renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Didática:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Didática:", e);
     }
-    
-    try { 
-      this.renderLearningObjectives(); 
+
+    try {
+      this.renderLearningObjectives();
       console.log("✅ Seção Objetivos renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Objetivos:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Objetivos:", e);
     }
-    
-    try { 
-      this.renderPlatformFeatures(); 
+
+    try {
+      this.renderPlatformFeatures();
       console.log("✅ Seção Features renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Features:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Features:", e);
     }
-    
-    try { 
-      this.renderCourses(); 
+
+    try {
+      this.renderCourses();
       console.log("✅ Seção Cursos renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Cursos:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Cursos:", e);
     }
-    
-    try { 
-      this.renderTestimonials(); 
+
+    try {
+      this.renderTestimonials();
       console.log("✅ Seção Depoimentos renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Depoimentos:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Depoimentos:", e);
     }
-    
-    try { 
-      this.renderBonus(); 
+
+    try {
+      this.renderBonus();
       console.log("✅ Seção Bônus renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Bônus:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Bônus:", e);
     }
-    
-    try { 
-      this.renderContact(); 
+
+    try {
+      this.renderContact();
       console.log("✅ Seção Contato renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Contato:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Contato:", e);
     }
-    
-    try { 
-      this.renderPricing(); 
+
+    try {
+      this.renderPricing();
       console.log("✅ Seção Preços renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Preços:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Preços:", e);
     }
-    
-    try { 
-      this.renderMiniCourses(); 
+
+    try {
+      this.renderMiniCourses();
       console.log("✅ Seção Mini Cursos renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Mini Cursos:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Mini Cursos:", e);
     }
-    
-    try { 
-      this.renderPedroAssaad(); 
+
+    try {
+      this.renderPedroAssaad();
       console.log("✅ Seção Victor Brow renderizada");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Victor Brow:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Victor Brow:", e);
     }
-    
-    try { 
-      this.renderFooter(); 
+
+    try {
+      this.renderFooter();
       console.log("✅ Footer renderizado");
-    } catch(e) { 
-      console.error("❌ Erro ao renderizar Footer:", e); 
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Footer:", e);
     }
   }
 
@@ -1809,12 +1874,12 @@ class BrowflixLanding {
       console.error("❌ Container students-carousel não encontrado");
       return;
     }
-    
+
     if (!config.students || !Array.isArray(config.students)) {
       console.error("❌ students não é um array válido");
       return;
     }
-    
+
     if (config.students.length === 0) {
       console.warn("⚠️ Nenhum aluno aprovado configurado");
       return;
@@ -1933,6 +1998,289 @@ class BrowflixLanding {
     );
   }
 
+  // Funções auxiliares para vídeos
+  extractVimeoId(url) {
+    if (!url) return null;
+    // Suporta vários formatos:
+    // https://vimeo.com/123456789
+    // https://vimeo.com/123456789/abc123def
+    // https://vimeo.com/123456789?share=copy
+    // https://vimeo.com/1137227684/9bd3505f5d?share=copy
+    // Procura pelo primeiro número após vimeo.com/
+    const match = url.match(/vimeo\.com\/(\d+)/);
+    if (match && match[1]) {
+      return match[1];
+    }
+    return null;
+  }
+
+  extractYoutubeId(url) {
+    if (!url) return null;
+    // Suporta vários formatos:
+    // https://www.youtube.com/watch?v=abc123
+    // https://youtu.be/abc123
+    // https://www.youtube.com/embed/abc123
+    // https://www.youtube.com/live/abc123 (live streams)
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/live\/)([^&\n?#]+)/,
+      /youtube\.com\/watch\?.*v=([^&\n?#]+)/,
+    ];
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match) return match[1];
+    }
+    return null;
+  }
+
+  getVimeoThumbnail(videoId) {
+    if (!videoId) return null;
+    // Usar vumbnail.com como serviço de thumbnail do Vimeo
+    // Este serviço funciona bem para a maioria dos vídeos públicos
+    return `https://vumbnail.com/${videoId}.jpg`;
+  }
+
+  // Função para obter thumbnail alternativa do Vimeo via oEmbed
+  async getVimeoThumbnailFromAPI(videoId) {
+    if (!videoId) return null;
+    try {
+      const response = await fetch(
+        `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`
+      );
+      if (response.ok) {
+        const data = await response.json();
+        return data.thumbnail_url || null;
+      }
+    } catch (error) {
+      console.warn(
+        "⚠️ Não foi possível obter thumbnail do Vimeo via API:",
+        error
+      );
+    }
+    return null;
+  }
+
+  getYoutubeThumbnail(videoId) {
+    if (!videoId) return null;
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  }
+
+  getVimeoEmbedUrl(videoId) {
+    if (!videoId) return null;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+  }
+
+  getYoutubeEmbedUrl(videoId, isLive = false) {
+    if (!videoId) return null;
+    // Para live streams, adicionar parâmetros específicos
+    if (isLive) {
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    }
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  }
+
+  openVideoModal(videoUrl, videoType) {
+    let embedUrl = null;
+    let videoId = null;
+
+    console.log("🎬 Abrindo modal de vídeo:", { videoUrl, videoType });
+
+    if (videoType === "vimeo") {
+      videoId = this.extractVimeoId(videoUrl);
+      console.log("📹 ID do Vimeo extraído:", videoId);
+      if (!videoId) {
+        console.error(
+          "❌ Não foi possível extrair o ID do Vimeo da URL:",
+          videoUrl
+        );
+        alert(
+          "Desculpe, não foi possível carregar o vídeo. Verifique se a URL do Vimeo está correta."
+        );
+        return;
+      }
+      embedUrl = this.getVimeoEmbedUrl(videoId);
+    } else if (videoType === "youtube") {
+      videoId = this.extractYoutubeId(videoUrl);
+      console.log("📹 ID do YouTube extraído:", videoId);
+      if (!videoId) {
+        console.error(
+          "❌ Não foi possível extrair o ID do YouTube da URL:",
+          videoUrl
+        );
+        alert(
+          "Desculpe, não foi possível carregar o vídeo. Verifique se a URL do YouTube está correta."
+        );
+        return;
+      }
+      // Verificar se é uma live stream
+      const isLive = videoUrl.includes("/live/");
+      embedUrl = this.getYoutubeEmbedUrl(videoId, isLive);
+    } else {
+      console.error("❌ Tipo de vídeo inválido:", videoType);
+      return;
+    }
+
+    if (!embedUrl) {
+      console.error("❌ URL de embed inválida:", {
+        videoUrl,
+        videoType,
+        videoId,
+      });
+      alert("Desculpe, não foi possível carregar o vídeo.");
+      return;
+    }
+
+    console.log("🔗 URL de embed gerada:", embedUrl);
+
+    // Criar modal
+    const modal = document.createElement("div");
+    modal.id = "video-modal";
+    modal.className =
+      "fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75";
+    modal.style.display = "flex";
+    modal.innerHTML = `
+      <div class="relative w-full max-w-4xl mx-4">
+        <button id="close-video-modal" class="absolute -top-10 right-0 text-white text-2xl hover:text-gray-300 transition-colors" style="z-index: 60;">
+          ✕
+        </button>
+        <div class="relative" style="padding-bottom: 56.25%; height: 0; overflow: hidden;">
+          <iframe 
+            id="video-iframe"
+            src="${embedUrl}" 
+            class="absolute top-0 left-0 w-full h-full"
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <div id="video-error" class="absolute inset-0 bg-black text-white flex items-center justify-center flex-col" style="display: none;">
+            <div class="text-center px-4">
+              <p class="text-xl mb-2">Desculpe</p>
+              <p class="text-base mb-4">Este vídeo não pode ser reproduzido aqui.</p>
+              <a id="video-external-link" href="${videoUrl}" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors mt-4">
+                Assistir o vídeo no ${
+                  videoType === "vimeo" ? "Vimeo" : "YouTube"
+                }
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Detectar erros no iframe (limitado devido a políticas CORS, mas tentamos)
+    const iframe = modal.querySelector("#video-iframe");
+    const errorDiv = modal.querySelector("#video-error");
+    const externalLink = modal.querySelector("#video-external-link");
+
+    // Função para fechar o modal e fazer cleanup
+    let cleanupFunctions = [];
+
+    // Para YouTube, especialmente live streams, adicionar botão de fallback visível
+    if (videoType === "youtube") {
+      // Se for live stream, mostrar botão de fallback após alguns segundos
+      const isLive = videoUrl.includes("/live/");
+      if (isLive) {
+        // Para live streams, adicionar um botão de fallback visível
+        const fallbackButton = document.createElement("div");
+        fallbackButton.className = "absolute bottom-4 right-4 z-10";
+        fallbackButton.innerHTML = `
+          <a href="${videoUrl}" target="_blank" rel="noopener noreferrer" 
+             class="inline-block px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm rounded-lg transition-colors shadow-lg">
+            Abrir no YouTube
+          </a>
+        `;
+        const videoContainer = modal.querySelector(".relative");
+        videoContainer.appendChild(fallbackButton);
+      }
+
+      // Timeout para detectar se o YouTube mostra erro (como erro 153)
+      const errorCheckTimeout = setTimeout(() => {
+        // Tentar detectar erro do YouTube através de mensagens postMessage
+        // Como não podemos acessar o conteúdo do iframe por CORS,
+        // vamos adicionar um listener para mensagens do YouTube
+        console.log("🔍 Verificando se há erros no player do YouTube...");
+      }, 3000);
+
+      // Listener para mensagens do YouTube (pode indicar erros)
+      const messageListener = (event) => {
+        // YouTube pode enviar mensagens sobre erros
+        if (event.data && typeof event.data === "string") {
+          try {
+            const data = JSON.parse(event.data);
+            if (data && data.event === "error") {
+              console.error("❌ Erro detectado no player do YouTube:", data);
+              clearTimeout(errorCheckTimeout);
+              if (errorDiv) {
+                errorDiv.style.display = "flex";
+                iframe.style.display = "none";
+              }
+            }
+          } catch (e) {
+            // Não é JSON, ignorar
+          }
+        }
+      };
+      window.addEventListener("message", messageListener);
+
+      // Adicionar cleanup
+      cleanupFunctions.push(() => {
+        clearTimeout(errorCheckTimeout);
+        window.removeEventListener("message", messageListener);
+      });
+    }
+
+    // Função para fechar modal com cleanup
+    const closeModal = () => {
+      cleanupFunctions.forEach((cleanup) => cleanup());
+      if (document.body.contains(modal)) {
+        document.body.removeChild(modal);
+      }
+    };
+
+    // Tentar detectar se o iframe carregou com sucesso
+    iframe.addEventListener("load", () => {
+      console.log("✅ Iframe carregado com sucesso");
+      // Verificar se o conteúdo do iframe está acessível (pode falhar por CORS)
+      try {
+        const iframeDoc =
+          iframe.contentDocument || iframe.contentWindow.document;
+        // Se chegou aqui, o iframe carregou
+      } catch (e) {
+        // CORS bloqueia, mas isso é normal - não significa erro
+        console.log("ℹ️ Acesso ao iframe bloqueado por CORS (normal)");
+      }
+    });
+
+    iframe.addEventListener("error", () => {
+      console.error("❌ Erro ao carregar iframe");
+      if (errorDiv) {
+        errorDiv.style.display = "flex";
+        iframe.style.display = "none";
+      }
+    });
+
+    // Fechar modal ao clicar no botão
+    const closeBtn = modal.querySelector("#close-video-modal");
+    closeBtn.addEventListener("click", closeModal);
+
+    // Fechar modal ao clicar fora do vídeo
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Fechar modal com ESC
+    const handleEsc = (e) => {
+      if (e.key === "Escape" && document.getElementById("video-modal")) {
+        closeModal();
+        document.removeEventListener("keydown", handleEsc);
+      }
+    };
+    document.addEventListener("keydown", handleEsc);
+  }
+
   renderPlatformFeatures() {
     const config = this.config.platformFeatures;
     if (!config) {
@@ -1948,34 +2296,180 @@ class BrowflixLanding {
       console.error("❌ Container features-container não encontrado");
       return;
     }
-    
+
     if (!config.features || !Array.isArray(config.features)) {
       console.error("❌ features não é um array válido");
       return;
     }
 
     const featuresHTML = config.features
-      .map(
-        (feature) => `
+      .map((feature, index) => {
+        let imageContent = "";
+        let dataAttributes = "";
+        let cursorClass = "";
+
+        // Verificar se tem vídeo
+        if (feature.videoUrl && feature.videoType) {
+          let videoId = null;
+          let thumbnailUrl = null;
+
+          // Se tiver thumbnail customizada, usar ela
+          if (feature.thumbnail || feature.image) {
+            thumbnailUrl = feature.thumbnail || feature.image;
+          } else {
+            // Caso contrário, tentar buscar automaticamente
+            if (feature.videoType === "vimeo") {
+              videoId = this.extractVimeoId(feature.videoUrl);
+              thumbnailUrl = this.getVimeoThumbnail(videoId);
+            } else if (feature.videoType === "youtube") {
+              videoId = this.extractYoutubeId(feature.videoUrl);
+              thumbnailUrl = this.getYoutubeThumbnail(videoId);
+            }
+          }
+
+          if (thumbnailUrl) {
+            // Escapar aspas na URL para uso em data attributes
+            const escapedVideoUrl = feature.videoUrl
+              .replace(/'/g, "&#39;")
+              .replace(/"/g, "&quot;");
+            const isCustomThumbnail = !!(feature.thumbnail || feature.image);
+            dataAttributes = `data-video-url="${escapedVideoUrl}" data-video-type="${
+              feature.videoType
+            }" ${isCustomThumbnail ? 'data-custom-thumbnail="true"' : ""}`;
+            cursorClass = "cursor-pointer video-thumbnail";
+
+            // Adicionar cache bust se for imagem customizada
+            const imageUrl =
+              feature.thumbnail || feature.image
+                ? `${thumbnailUrl}?v=${this.cacheBustVersion}`
+                : thumbnailUrl;
+
+            imageContent = `
+                <img 
+                  src="${imageUrl}" 
+                  alt="${feature.title}" 
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  ${isCustomThumbnail ? 'data-custom-thumbnail="true"' : ""}
+                />
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-20 transition-opacity">
+                  <div class="bg-white bg-opacity-90 rounded-full p-4 hover:bg-opacity-100 transition-all transform hover:scale-110">
+                    <svg class="w-12 h-12 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              `;
+          } else {
+            imageContent = `<div class="text-gray-400 text-center p-4"><div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">400×400px</div><span class="text-sm">Vídeo não disponível</span></div>`;
+          }
+        } else if (feature.banner) {
+          imageContent = `<img src="${feature.banner}?v=${this.cacheBustVersion}" alt="${feature.title}" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>400x400px<br/><span class=\\'text-sm\\'>Banner não disponível</span></div>';" />`;
+        } else {
+          imageContent = `<div class="text-gray-400 text-center p-4"><div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">400×400px</div><span class="text-sm">Banner não disponível</span></div>`;
+        }
+
+        return `
             <div class="feature-card">
                 <div class="feature-image ${
-                  feature.banner ? "" : "bg-gray-100"
-                }">
-                    ${
-                      feature.banner
-                        ? `<img src="${feature.banner}?v=${this.cacheBustVersion}" alt="${feature.title}" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>400x400px<br/><span class=\\'text-sm\\'>Banner não disponível</span></div>';" />`
-                        : `<div class="text-gray-400 text-center p-4"><div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">400×400px</div><span class="text-sm">Banner não disponível</span></div>`
-                    }
+                  feature.banner || (feature.videoUrl && feature.videoType)
+                    ? ""
+                    : "bg-gray-100"
+                } ${cursorClass}" style="position: relative; ${
+          feature.videoUrl && feature.videoType ? "overflow: hidden;" : ""
+        }" ${dataAttributes}>
+                    ${imageContent}
                 </div>
                 <div class="feature-content">
                     <h3 class="feature-title">${feature.title}</h3>
                 </div>
             </div>
-        `
-      )
+        `;
+      })
       .join("");
 
     container.innerHTML = featuresHTML;
+
+    // Adicionar event listeners para vídeos
+    container.querySelectorAll(".video-thumbnail").forEach((element) => {
+      element.addEventListener("click", () => {
+        const videoUrl = element.getAttribute("data-video-url");
+        const videoType = element.getAttribute("data-video-type");
+        if (videoUrl && videoType) {
+          // Abrir vídeo em nova aba (tanto Vimeo quanto YouTube)
+          window.open(videoUrl, "_blank", "noopener,noreferrer");
+        }
+      });
+    });
+
+    // Tentar carregar thumbnails do Vimeo via API se a primeira tentativa falhar
+    // APENAS se não for uma thumbnail customizada
+    container.querySelectorAll(".video-thumbnail").forEach(async (element) => {
+      const videoType = element.getAttribute("data-video-type");
+      const isCustomThumbnail =
+        element.hasAttribute("data-custom-thumbnail") ||
+        element.querySelector("img")?.hasAttribute("data-custom-thumbnail");
+
+      // Não tentar API se for thumbnail customizada
+      if (isCustomThumbnail) {
+        const img = element.querySelector("img");
+        if (img) {
+          // Para thumbnails customizadas, apenas mostrar erro se não carregar
+          img.addEventListener(
+            "error",
+            function () {
+              console.warn(
+                "⚠️ Thumbnail customizada não pôde ser carregada:",
+                img.src
+              );
+              this.onerror = null; // Prevenir loop
+              this.parentElement.innerHTML =
+                '<div class="text-gray-400 text-center p-4">400x400px<br/><span class="text-sm">Thumbnail não disponível</span></div>';
+            },
+            { once: true }
+          ); // once: true garante que o listener só executa uma vez
+        }
+        return; // Não continuar com a lógica de API
+      }
+
+      if (videoType === "vimeo") {
+        const videoUrl = element.getAttribute("data-video-url");
+        const videoId = this.extractVimeoId(videoUrl);
+        if (videoId) {
+          const img = element.querySelector("img");
+          if (img) {
+            let errorHandled = false; // Flag para evitar múltiplas tentativas
+            // Se a imagem falhar ao carregar, tentar API do Vimeo
+            img.addEventListener(
+              "error",
+              async () => {
+                if (errorHandled) return; // Evitar múltiplas execuções
+                errorHandled = true;
+
+                console.log("🔄 Tentando obter thumbnail do Vimeo via API...");
+                const apiThumbnail = await this.getVimeoThumbnailFromAPI(
+                  videoId
+                );
+                if (apiThumbnail) {
+                  img.src = apiThumbnail;
+                  img.onerror = null; // Remover handler de erro para evitar loop
+                  console.log("✅ Thumbnail do Vimeo carregada via API");
+                } else {
+                  // Se a API também falhar, mostrar mensagem de erro
+                  console.warn(
+                    "⚠️ Não foi possível carregar thumbnail do Vimeo"
+                  );
+                  img.onerror = null; // Remover handler para evitar loop
+                  img.parentElement.innerHTML =
+                    '<div class="text-gray-400 text-center p-4">400x400px<br/><span class="text-sm">Thumbnail não disponível</span></div>';
+                }
+              },
+              { once: true }
+            ); // once: true garante que o listener só executa uma vez
+          }
+        }
+      }
+    });
   }
 
   renderCourses() {
@@ -1994,22 +2488,44 @@ class BrowflixLanding {
       console.error("❌ Container courses-container não encontrado");
       return;
     }
-    
+
     if (!config.courses || !Array.isArray(config.courses)) {
       console.error("❌ courses não é um array válido");
       return;
     }
 
     const coursesHTML = config.courses
-      .map(
-        (course, index) => `
+      .map((course, index) => {
+        const hasVideo = !!(course.videoUrl && course.videoType);
+        const escapedVideoUrl = hasVideo
+          ? course.videoUrl.replace(/'/g, "&#39;").replace(/"/g, "&quot;")
+          : "";
+        const bannerContainerClass = hasVideo
+          ? "w-full h-60 overflow-hidden bg-gray-100 flex items-center justify-center cursor-pointer course-video-banner relative"
+          : "w-full h-60 overflow-hidden bg-gray-100 flex items-center justify-center";
+        const bannerDataAttributes = hasVideo
+          ? `data-video-url="${escapedVideoUrl}" data-video-type="${course.videoType}"`
+          : "";
+
+        return `
             <div class="course-card w-80 h-96 flex-shrink-0 overflow-hidden rounded-lg bg-white" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
                 <div class="h-full flex flex-col">
-                    <div class="w-full h-60 overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <div class="${bannerContainerClass}" ${bannerDataAttributes}>
                         ${
                           course.banner
                             ? `<img src="${course.banner}?v=${this.cacheBustVersion}" alt="${course.title}" class="w-full h-full object-cover" style="width: 320px; height: 240px;" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>Banner não disponível<br/><span class=\\'text-sm\\'>320x240px</span></div>';" />`
                             : `<div class="text-gray-400 text-center p-4">Banner não disponível<br/><span class="text-sm">Dimensões: 320x240px</span></div>`
+                        }
+                        ${
+                          hasVideo
+                            ? `<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-20 transition-opacity">
+                                <div class="bg-white bg-opacity-90 rounded-full p-4 hover:bg-opacity-100 transition-all transform hover:scale-110">
+                                  <svg class="w-12 h-12 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                  </svg>
+                                </div>
+                              </div>`
+                            : ""
                         }
                     </div>
                     <div class="flex-1 p-4 flex flex-col justify-center text-center bg-white">
@@ -2024,11 +2540,23 @@ class BrowflixLanding {
                     </div>
                 </div>
             </div>
-        `
-      )
+        `;
+      })
       .join("");
 
     container.innerHTML = coursesHTML;
+
+    // Adicionar event listeners para banners com vídeo
+    container.querySelectorAll(".course-video-banner").forEach((element) => {
+      element.addEventListener("click", () => {
+        const videoUrl = element.getAttribute("data-video-url");
+        const videoType = element.getAttribute("data-video-type");
+        if (videoUrl && videoType) {
+          // Abrir vídeo em nova aba (tanto Vimeo quanto YouTube)
+          window.open(videoUrl, "_blank", "noopener,noreferrer");
+        }
+      });
+    });
   }
 
   renderTestimonials() {
@@ -2047,46 +2575,63 @@ class BrowflixLanding {
       console.error("❌ Container testimonials-container não encontrado");
       return;
     }
-    
+
     if (!config.testimonials || !Array.isArray(config.testimonials)) {
       console.error("❌ testimonials não é um array válido");
       return;
     }
 
     const testimonialsHTML = config.testimonials
-      .map(
-        (testimonial) => `
-            <div class="testimonial-card">
-                <div class="testimonial-image gradient-${
-                  testimonial.gradient || "blue-purple"
-                }">
-                    ${testimonial.icon}
-                    <div class="testimonial-overlay">
-                        <div class="testimonial-play">
-                            <svg class="w-8 h-8 text-gray-800 fill-current" viewBox="0 0 24 24">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="testimonial-tags">
-                        ${testimonial.tags
-                          .map(
-                            (tag) => `
-                            <div class="testimonial-tag ${
-                              tag.includes("960")
-                                ? "bg-blue-600 text-white"
-                                : "bg-orange-500 text-white"
-                            }">
-                                ${tag}
-                            </div>
-                        `
-                          )
-                          .join("")}
-                    </div>
+      .map((testimonial) => {
+        // Gerar estrelas baseado no rating (pequenas)
+        const stars = Array.from({ length: 5 }, (_, i) => {
+          const filled = i < testimonial.rating;
+          return `<svg class="w-3.5 h-3.5 ${
+            filled ? "text-yellow-400" : "text-gray-300"
+          }" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>`;
+        }).join("");
+
+        // Avatar ou placeholder
+        const avatarContent = testimonial.avatar
+          ? `<img src="${testimonial.avatar}?v=${this.cacheBustVersion}" alt="${testimonial.name}" class="w-20 h-20 rounded-full object-cover" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'80\\' height=\\'80\\'%3E%3Crect width=\\'80\\' height=\\'80\\' fill=\\'%23e5e7eb\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' dy=\\'.3em\\' fill=\\'%239ca3af\\' font-size=\\'12\\'%3E80x80px%3C/text%3E%3C/svg%3E';" />`
+          : `<div class="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="text-xs text-gray-500 font-semibold">80x80px</div>
+                  <div class="text-xs text-gray-400">Avatar</div>
                 </div>
+              </div>`;
+
+        return `
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start space-x-4">
+                <!-- Avatar -->
+                <div class="flex-shrink-0">
+                  ${avatarContent}
+                </div>
+                
+                <!-- Conteúdo -->
+                <div class="flex-1 min-w-0">
+                  <!-- Nome -->
+                  <h3 class="text-xl font-semibold text-gray-900 mb-1 whitespace-nowrap overflow-hidden text-ellipsis">${
+                    testimonial.name || "Aluno"
+                  }</h3>
+                  
+                  <!-- Estrelas -->
+                  <div class="flex items-center space-x-0.5 mb-3">
+                    ${stars}
+                  </div>
+                  
+                  <!-- Comentário -->
+                  <p class="text-gray-700 text-sm leading-relaxed">
+                    "${testimonial.comment || "Sem comentário disponível."}"
+                  </p>
+                </div>
+              </div>
             </div>
-        `
-      )
+          `;
+      })
       .join("");
 
     container.innerHTML = testimonialsHTML;
@@ -2108,7 +2653,7 @@ class BrowflixLanding {
       console.error("❌ Container bonus-container não encontrado");
       return;
     }
-    
+
     if (!config.bonuses || !Array.isArray(config.bonuses)) {
       console.error("❌ bonuses não é um array válido");
       return;
@@ -2173,7 +2718,7 @@ class BrowflixLanding {
       console.warn("⚠️ Config pricing não encontrado");
       return;
     }
-    
+
     if (!config.plans || !Array.isArray(config.plans)) {
       console.error("❌ plans não é um array válido");
       return;
@@ -2475,7 +3020,7 @@ Gostaria de receber mais informações sobre os planos e valores.`;
 
 // Inicializar quando o DOM estiver carregado
 document.addEventListener("DOMContentLoaded", () => {
-  new BrowflixLanding();
+  window.browflixLanding = new BrowflixLanding();
 });
 
 // Exportar para uso global se necessário
