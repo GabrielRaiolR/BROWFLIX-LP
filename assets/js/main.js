@@ -1597,7 +1597,7 @@ class BrowflixLanding {
             button: {
               text: "Quero me matricular agora",
               style: "primary",
-              url: "https://chk.eduzz.com/39ZQP8JZ9E", // Exemplo: "https://checkout.exemplo.com/plano-anual-ao-vivo"
+              url: "https://chk.eduzz.com/801EKVZ6W7", // Exemplo: "https://checkout.exemplo.com/plano-anual-ao-vivo"
             },
           },
           {
@@ -1633,7 +1633,7 @@ class BrowflixLanding {
           },
           {
             name: "PLANO MENSAL",
-            subtitle: "span class='text-green-500'>Recorrente</span>",
+            subtitle: "<span class='text-green-500'>Recorrente</span>",
             icon: "PM",
             color: "blue",
             isRecurring: true,
@@ -2642,7 +2642,7 @@ class BrowflixLanding {
                 <div class="text-center">
                   <div class="text-xs text-gray-500 font-semibold">80x80px</div>
                   <div class="text-xs text-gray-400">Avatar</div>
-                </div>
+                        </div>
               </div>`;
 
         return `
@@ -2651,7 +2651,7 @@ class BrowflixLanding {
                 <!-- Avatar -->
                 <div class="flex-shrink-0">
                   ${avatarContent}
-                </div>
+                    </div>
                 
                 <!-- Conteúdo -->
                 <div class="flex-1 min-w-0">
@@ -2663,14 +2663,14 @@ class BrowflixLanding {
                   <!-- Estrelas -->
                   <div class="flex items-center space-x-0.5 mb-3">
                     ${stars}
-                  </div>
+                            </div>
                   
                   <!-- Comentário -->
                   <p class="text-gray-700 text-sm leading-relaxed">
                     "${testimonial.comment || "Sem comentário disponível."}"
                   </p>
+                    </div>
                 </div>
-              </div>
             </div>
           `;
       })
@@ -2781,11 +2781,6 @@ class BrowflixLanding {
                 ${
                   plan.badge
                     ? `<div class="pricing-badge">${plan.badge}</div>`
-                    : ""
-                }
-                ${
-                  plan.isRecurring
-                    ? `<div class="pricing-badge" style="background: #10b981; margin-bottom: 0.5rem;">RECORRENTE</div>`
                     : ""
                 }
                 
