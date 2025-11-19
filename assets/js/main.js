@@ -1951,12 +1951,7 @@ class BrowflixLanding {
     this.updateElement("hero-badge", this.config.hero?.badge);
     this.updateElement("hero-title", this.config.hero?.title);
     this.updateElement("hero-description", this.config.hero?.description);
-    this.updateElement("hero-highlight", this.config.hero?.highlight);
     this.updateElement("hero-button", this.config.hero?.button?.text);
-    this.updateElement(
-      "hero-secondary-button",
-      this.config.hero?.secondaryButton?.text
-    );
 
     // Aplicar outras seções com proteção contra erros
     try {

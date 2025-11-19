@@ -26,7 +26,7 @@
     "description": "Victor Brow transformou sua paixão por ensinar em uma metodologia que já aprovou <strong>mais de 500 alunos</strong> em Medicina. Agora é a <strong>sua vez</strong> de fazer parte dessa história.",
     "button": {
       "text": "Quero ser o proximo aprovado em Medicina",
-      "url": "#contato"
+      "url": "#planos"
     }
   },
   "approvedStudents": {
@@ -100,17 +100,17 @@
     ]
   },
   "didatica": {
-    "title": "Didática mágica,<br />resultados<br />garantidos!",
-    "description1": "O maior diferencial da Plataforma Browflix é a didática especial e mágica do professor Victor \"Brow\".",
-    "description2": "O aluno tem a garantia total de que vai conseguir aprender e absorver as oportunidades, de modo que consegue aplicar na prova do ENEM de forma eficaz desde que o aluno clique nas aulas e se assista.",
+    "title": "Brow é polêmico?<br />Sim! Mas não tem melhor que ele em sala de aula.✨",
+    "description1": "O maior diferencial (além de questões autorais, projetos individuais e monitoria 24h) é a super didática do Brow",
+    "description2": "O aluno tem a garantia total de que vai conseguir aprender e absorver as oportunidades, aplicando na prova do ENEM de forma eficaz.",
     "banner": "assets/images/banners/Plataforma-home.png",
     "button": {
-      "text": "Quero me matricular",
-      "url": "#planos"
+      "text": "Quero me matricular →",
+      "url": "#contato"
     }
   },
   "learningObjectives": {
-    "title": "O que você vai aprender no<br /><span class=\"text-blue-600\">Intensivo da Plataforma Browflix?</span>",
+    "title": "O que você terá ao Adquirir a<br /><span class=\"text-blue-600\">Plataforma Browflix?</span>",
     "objectives": [
       {
         "number": 1,
@@ -300,24 +300,24 @@
     "title": "Inscreva-se nessa turma e<br /><span class=\"text-accent\">garanta</span><br /><span class=\"text-accent\">mais 3 presentes exclusivos</span>",
     "bonuses": [
       {
-        "title": "Bônus 02 - 3 melhores de correção de redação",
-        "description": "Aprenda com os melhores exemplos de redação corrigidos por especialistas. Material exclusivo que vai elevar seu nível de escrita para o ENEM.",
-        "icon": "✍️",
-        "gradient": "from-blue-500 to-purple-600",
+        "title": "Bônus 01 - Curso Gravado de CN",
+        "description": "Curso de Ciencias da Natureza Completo Gravado com aulas de Física, Química e Biologia.",
+        "icon": "🔬",
+        "gradient": "from-purple-500 to-blue-400",
         "price": "GRÁTIS"
       },
       {
-        "title": "Bônus 03 - Gramática para Redação",
-        "description": "Domine a gramática essencial para uma redação nota 1000. Conteúdo focado nas principais dificuldades dos estudantes.",
-        "icon": "📖",
-        "gradient": "from-pink-500 to-red-500",
+        "title": "Bônus 02 - Curso das férias Gravado",
+        "description": "Ganhe meu curso de completo de todas as matérias gravado para você aproveitar as férias.",
+        "icon": "🎓",
+        "gradient": "from-purple-700 to-orange-500",
         "price": "GRÁTIS"
       },
       {
-        "title": "Bônus 04 - Masterclass: Como estudar com Mira Sargent",
-        "description": "Metodologia exclusiva de uma das maiores especialistas em técnicas de estudo do Brasil. Transforme sua forma de aprender.",
+        "title": "Bônus 03 - 50% De desconto no Desumanidades (curso de humanas que mais aprova no Norte do Brasil)",
+        "description": "Nosso carro chefe dos cursos do Brow! Aproveite 50% de desconto para você aproveitar o melhor curso de humanas que mais aprova no Norte do Brasil.",
         "icon": "🎯",
-        "gradient": "from-cyan-500 to-blue-500",
+        "gradient": "from-pink-500 to-blue-400",
         "price": "GRÁTIS"
       }
     ],
@@ -586,6 +586,7 @@
     "social": {
       "facebook": "https://www.facebook.com/profile.php?id=100067189491908",
       "instagram": "https://www.instagram.com/matematicabrow/",
+      "linkedin": "https://www.linkedin.com/company/matematicabrow",
       "youtube": "https://www.youtube.com/@matematicabrow"
     },
     "links": {
