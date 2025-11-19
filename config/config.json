@@ -1,6 +1,6 @@
 {
-  "_version": "2024110201",
-  "_lastUpdate": "2024-11-01T00:00:00Z",
+  "_version": "2024110204",
+  "_lastUpdate": "2024-11-02T00:00:00Z",
   "site": {
     "title": "Plataforma Browflix - Intensivo Medicina ENEM",
     "description": "Didática mágica, resultados garantidos. A única plataforma do Brasil que GARANTE seu aprendizado.",
@@ -141,37 +141,46 @@
         "icon": "👤",
         "title": "Área do aluno exclusiva",
         "gradient": "from-blue-500 to-purple-600",
-        "banner": ""
+        "videoUrl": "https://vimeo.com/1137227684/9bd3505f5d?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo",
+        "thumbnail": "assets/images/thumbnails/vimeo-thumbnail.png"
       },
       {
         "icon": "🎬",
         "title": "Aulas ultradidáticas com qualidade de cinema",
         "gradient": "from-pink-500 to-red-500",
-        "banner": ""
+        "videoUrl": "https://www.youtube.com/live/qtFCv-yk8-Y?si=K6S6LH8V9VXzohYW",
+        "videoType": "youtube"
       },
       {
         "icon": "📱",
         "title": "Aplicativo que permite você baixar as aulas para assistir offline sem gastar seu pacote de dados",
         "gradient": "from-cyan-500 to-blue-500",
-        "banner": ""
+        "banner": "assets/images/thumbnails/aplicativo-thumbnail.png"
       },
       {
         "icon": "📝",
         "title": "Listas de questões selecionadas e resolvidas com uma didática impecável",
         "gradient": "from-green-500 to-teal-500",
-        "banner": ""
+        "videoUrl": "https://vimeo.com/1137227684/9bd3505f5d?share=copy&fl=sv&fe=ci#t=579",
+        "videoType": "vimeo",
+        "thumbnail": "assets/images/thumbnails/vimeo-material-didatico.png"
       },
       {
         "icon": "📡",
         "title": "Aulas Ao Vivo até o ENEM 2025",
         "gradient": "from-pink-500 to-yellow-500",
-        "banner": ""
+        "videoUrl": "https://vimeo.com/1137235655/4ffd953c03?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo",
+        "thumbnail": "assets/images/thumbnails/vimeo-aulas-ao-vivo.png"
       },
       {
         "icon": "🎓",
         "title": "Monitorias e tutorias com aprovados em Medicina",
         "gradient": "from-teal-500 to-purple-500",
-        "banner": ""
+        "videoUrl": "https://vimeo.com/1137236691/7955cab6f5?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo",
+        "thumbnail": "assets/images/thumbnails/vimeo-grupo-de-duvidas.png"
       }
     ],
     "button": {
@@ -184,74 +193,74 @@
     "subtitle": "Conheça a Plataforma Browflix por dentro:",
     "courses": [
       {
-        "title": "Matemática",
-        "subtitle": "Básica",
-        "bgColor": "bg-blue-600",
-        "textColor": "text-white",
-        "image": ""
-      },
-      {
         "title": "Matemática Básica",
-        "subtitle": "para o ENEM",
-        "bgColor": "bg-blue-700",
-        "textColor": "text-white",
-        "image": ""
+        "subtitle": "Brow Kai",
+        "banner": "assets/images/banners/Matematica Básica.png",
+        "videoUrl": "https://vimeo.com/1137237488/787b47b855?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo"
       },
       {
-        "title": "Funções e",
+        "title": "Matemática Básica para o ENEM",
+        "subtitle": "The last of Brow",
+        "banner": "assets/images/banners/Matematica Basica Para o ENEM.png",
+        "videoUrl": "https://vimeo.com/1137237717/2fecb40056?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo"
+      },
+      {
+        "title": "Funções e Financeira",
         "subtitle": "Matemática Financeira",
-        "bgColor": "bg-blue-800",
-        "textColor": "text-white",
-        "image": ""
+        "banner": "assets/images/banners/Funções e financeira.png",
+        "videoUrl": "",
+        "videoType": "vimeo"
       },
       {
         "title": "Análise Combinatória",
         "subtitle": "e Probabilidade",
-        "bgColor": "bg-blue-500",
-        "textColor": "text-white",
-        "image": ""
+        "banner": "assets/images/banners/Análise Combinatória e Probabilidade.png",
+        "videoUrl": "",
+        "videoType": "vimeo"
       },
       {
         "title": "Geometria Plana",
         "subtitle": "e Espacial",
-        "bgColor": "bg-blue-400",
-        "textColor": "text-white",
-        "image": ""
+        "banner": "assets/images/banners/Geometria Plana e espacial.png",
+        "videoUrl": "",
+        "videoType": "vimeo"
       },
       {
-        "title": "Curso de",
-        "subtitle": "Revisão",
-        "bgColor": "bg-blue-200",
-        "textColor": "text-blue-800",
-        "image": ""
+        "title": "Curso de Revisão",
+        "subtitle": "Ringue do Brow",
+        "banner": "assets/images/banners/Curso de Revisão.png",
+        "videoUrl": "https://vimeo.com/1137227684/9bd3505f5d?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo"
       },
       {
-        "title": "Curso nas Férias",
-        "subtitle": "do Brow",
-        "bgColor": "bg-orange-200",
-        "textColor": "text-orange-700",
-        "image": ""
+        "title": "Curso nas Férias do Brow",
+        "subtitle": "Curtindo o Verão",
+        "banner": "assets/images/banners/Curso de Ferias.png",
+        "videoUrl": "https://vimeo.com/1137239390/b1ef83bdfb?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo"
       },
       {
-        "title": "Projeto",
-        "subtitle": "Iniciante",
-        "bgColor": "bg-indigo-700",
-        "textColor": "text-white",
-        "image": ""
+        "title": "Projeto Iniciante",
+        "subtitle": "Mentoria Guerra",
+        "banner": "assets/images/banners/Projeto Iniciante.png",
+        "videoUrl": "https://vimeo.com/1137240623/1963e408f3?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo"
       },
       {
-        "title": "Projeto",
-        "subtitle": "Elite",
-        "bgColor": "bg-amber-600",
-        "textColor": "text-white",
-        "image": ""
+        "title": "Projeto Elite",
+        "subtitle": "Esquedrão especial do brow",
+        "banner": "assets/images/banners/Projeto Elite.png",
+        "videoUrl": "https://vimeo.com/1137240623/1963e408f3?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo"
       },
       {
         "title": "H.E.C.B",
-        "subtitle": "Habilidades ENEM com o Brow",
-        "bgColor": "bg-gray-700",
-        "textColor": "text-white",
-        "image": ""
+        "subtitle": "(Habilidades ENEM com o Brow)",
+        "banner": "assets/images/banners/HECB.png",
+        "videoUrl": "https://vimeo.com/1137240623/1963e408f3?share=copy&fl=sv&fe=ci",
+        "videoType": "vimeo"
       }
     ],
     "button": {
@@ -260,31 +269,31 @@
     }
   },
   "testimonials": {
-    "title": "Veja <span class=\"text-accent\">o que dizem</span> os alunos<br />da Plataforma Browflix.",
+    "title": "Veja <span class=\"text-accent\">o que dizem</span> os alunos da Plataforma Browflix.",
     "subtitle": "A <span class=\"text-blue-600\">opinião</span> de quem já está vivendo <span class=\"text-blue-600\">o que você ainda sonha</span>.",
     "testimonials": [
       {
-        "icon": "🎓",
-        "gradient": "from-blue-500 to-purple-600",
-        "tags": ["960 na redação do ENEM", "Mudança de mentalidade"]
+        "avatar": "assets/images/testemunhos/arthur-zvez-avatar.png",
+        "name": "Arthur Zvez",
+        "rating": 5,
+        "comment": "Posso afirmar que o Brow NUNCA me deixou na mão. Sem ele meu resultado não seria possivel."
       },
       {
-        "icon": "🎓",
-        "gradient": "from-pink-500 to-red-500",
-        "tags": ["960 na redação do ENEM", "39/45 em Matemática"]
+        "avatar": "assets/images/testemunhos/tiago-santos-avatar.png",
+        "name": "Tiago Santos",
+        "rating": 5,
+        "comment": "Fui o 2º aprovado no ENEM 2025 na UFPA e UEPA, e o Brow foi fundamental para isso! Hoje estou cursando Medicina e posso afirmar que o Brow é o melhor investimento que fiz."
       },
       {
-        "icon": "🎓",
-        "gradient": "from-cyan-500 to-blue-500",
-        "tags": [
-          "+150 acertos em menos de 1 ano",
-          "Aprendi a gostar das matérias"
-        ]
+        "avatar": "assets/images/testemunhos/arthur-pinheiro-avatar.png",
+        "name": "Arthur Pinheiro",
+        "rating": 5,
+        "comment": "Fui o 5º aprovado no ENEM 2025 na UEPA, e o Brow foi fundamental para isso! Hoje estou cursando Medicina e posso afirmar que o Brow é o melhor investimento que fiz."
       }
     ],
     "button": {
       "text": "Quero ser o próximo aprovado!",
-      "url": "#contato"
+      "url": "#planos"
     }
   },
   "bonus": {
@@ -349,9 +358,16 @@
         },
         {
           "type": "text",
-          "name": "profissao",
-          "placeholder": "Profissão/Área de atuação",
+          "name": "escolaridade",
+          "placeholder": "Grau de escolaridade",
           "required": true
+        },
+        {
+          "type": "textarea",
+          "name": "descricao",
+          "title": "Quero saber sobre os combos e planos com um Especialista",
+          "placeholder": "Quero saber sobre os combos e planos com um Especialista",
+          "required": false
         }
       ],
       "button": {
@@ -363,90 +379,92 @@
   "pricing": {
     "plans": [
       {
-        "name": "Plataforma Browflix",
+        "name": "Plataforma Browflix <br>PLANO ANUAL <span class='text-red-500'>GRAVADO!!</span>",
+        "subtitle": "",
+        "icon": "PB",
+        "color": "green",
+        "highlighted": false,
+        "originalPrice": "De R$ 1.500,00 por:",
+        "price": "12x R$ 67,34",
+        "installments": "ou R$ 700 à vista",
+        "features": [
+          "Curso de Matemática Básica",
+          "Curso de Matemática básica Pro Enem",
+          "Curso de Funções e financeira",
+          "Curso de Análise combinatória",
+          "Curso de Probabilidade",
+          "Curso de Geometria Plana e espacial",
+          "Projeto Iniciante (para alunos com menos de 30 acertos)",
+          "Projeto Elite (para alunos 35+ em matemática)",
+          "Curso de HABILIDADES ENEM COM BROW",
+          "Curso de Revisão Espaçada Garantida"
+        ],
+        "bonuses": [
+          "Garantia 7 dias",
+          "Curso de Linguagens Gravado",
+          "Curso nas Férias (revisão geral)",
+          "Desconto de 50% no curso Desumanidades",
+          "50% de Desconto no Curso de CN gravado"
+        ],
+        "button": {
+          "text": "Quero me matricular agora",
+          "style": "outline",
+          "url": "https://chk.eduzz.com/E9OO463K9B"
+        }
+      },
+      {
+        "name": "Plataforma Browflix <br> PLANO ANUAL AO VIVO",
         "subtitle": "Acesso até o ENEM 2026",
         "icon": "PB",
         "color": "blue",
-        "price": "R$ 3.000,00",
-        "installments": "ou 12x de R$ 299,41",
-        "features": [
-          "Curso de Matemática",
-          "Curso de Física",
-          "Curso de Biologia",
-          "Curso de Química",
-          "Curso de Humanas",
-          "Curso de Redação",
-          "Curso de História",
-          "Curso de Sociologia",
-          "Curso de Filosofia",
-          "Curso de Geografia"
-        ],
-        "bonuses": [
-          "Garantia 7 dias",
-          "Concentração e Foco",
-          "Blindagem Emocional",
-          "Rotina de Campeão",
-          "4 Créditos de correção de redação por mês até o ENEM 2025"
-        ],
-        "button": {
-          "text": "Quero me matricular agora",
-          "style": "outline"
-        }
-      },
-      {
-        "name": "INTENSIVO Medicina ENEM",
-        "subtitle": "PLATAFORMA BROWFLIX",
-        "icon": "IM",
-        "color": "blue",
         "highlighted": true,
-        "badge": "INTENSIVO MEDICINA ENEM 2025",
+        "badge": "O PLANO MAIS ESCOLHIDO",
         "originalPrice": "De R$ 3.000,00 por:",
-        "price": "12x R$ 119,76",
-        "installments": "ou R$ 1200 à vista",
+        "price": "12x R$ 106,48",
+        "installments": "ou R$ 1100 à vista",
         "features": [
-          "Curso de Matemática",
-          "Curso de Física",
-          "Curso de Biologia",
-          "Curso de Química",
-          "Curso de Humanas",
-          "Curso de Redação",
-          "Curso de História",
-          "Curso de Sociologia",
-          "Curso de Filosofia",
-          "Curso de Geografia"
+          "AULAS AO VIVO 19h às 22h de Terça Feira(Lembrando que elas ficam gravadas) Início: 14/01/2026",
+          "Curso de Matemática Básica",
+          "Curso de Matemática básica Pro Enem",
+          "Curso de Funções e financeira",
+          "Curso de Análise combinatória",
+          "Curso de Probabilidade",
+          "Curso de Geometria Plana e Espacial",
+          "Projeto Iniciante (para alunos com menos de 30 acertos)",
+          "Projeto Elite (para alunos 35+ em matemática)",
+          "Curso de Habilidades ENEM com Brow",
+          "Curso de Revisão Espaçada Garantida",
+          "Curso de Ferias do Brow"
         ],
         "bonuses": [
           "Garantia 7 dias",
-          "Concentração e Foco",
-          "Blindagem Emocional",
-          "Rotina de Campeão",
-          "4 Créditos de correção de redação por mês até o ENEM 2025",
-          "Material Didático",
-          "Mapa de progresso competitivo",
-          "Plataforma de Redação",
-          "Masterclass: Como estudar em Alta Performance",
-          "Curso de Redação com Milla Borges",
-          "Curso de Gramática para Redação"
+          "Curso de Linguagens Gravado",
+          "Curso nas Férias (revisão geral)",
+          "Desconto de 50% no curso Desumanidades",
+          "50% de Desconto no Curso de CN gravado",
+          "Aulas Gravadas de 2025",
+          "Simulados mensais com relatórios",
+          "Grupo de dúvidas com 25 acadêmicos de Medicina",
+          "Desconto no material físico"
         ],
         "button": {
           "text": "Quero me matricular agora",
-          "style": "primary"
+          "style": "primary",
+          "url": "https://chk.eduzz.com/801EKVZ6W7"
         }
       },
       {
-        "name": "Plataforma Browflix PREMIUM",
-        "subtitle": "Acesso até o ENEM 2027",
-        "icon": "PP",
+        "name": "CURSO DESUMANIDADES",
+        "subtitle": "Acesso até o ENEM 2026",
+        "icon": "DH",
         "color": "blue",
-        "price": "R$ 4.500,00",
-        "installments": "ou 12x de R$ 449,11",
+        "highlighted": false,
+        "originalPrice": "De R$ 1.200,00 por:",
+        "price": "12x R$ 57,72",
+        "installments": "ou R$ 600 à vista",
         "features": [
-          "Curso de Matemática",
-          "Curso de Física",
-          "Curso de Biologia",
-          "Curso de Química",
+          "Aulas ao vivo (quarta e quinta à noite)",
           "Curso de Humanas",
-          "Curso de Redação",
           "Curso de História",
           "Curso de Sociologia",
           "Curso de Filosofia",
@@ -454,71 +472,99 @@
         ],
         "bonuses": [
           "Garantia 7 dias",
-          "Concentração e Foco",
-          "Blindagem Emocional",
-          "Rotina de Campeão",
-          "6 Créditos de correção de redação por mês até o ENEM 2027",
-          "Material Didático Premium",
-          "Mentorias individuais"
+          "Curso de Linguagens gravado",
+          "Aulas Gravadas de 2025",
+          "Simulados corrigidos por mês até o ENEM 2025"
         ],
         "button": {
           "text": "Quero me matricular agora",
-          "style": "outline"
+          "style": "outline",
+          "url": "https://chk.eduzz.com/6W48N3OO0Z"
+        }
+      },
+      {
+        "name": "PLANO MENSAL",
+        "subtitle": "<span class='text-green-500'>Recorrente</span>",
+        "icon": "PM",
+        "color": "blue",
+        "isRecurring": true,
+        "isCompact": true,
+        "price": "R$ 210,00",
+        "installments": "por mês",
+        "features": [
+          "Curso de Matemática Básica",
+          "Matemática básica Pro Enem",
+          "Funções e financeira",
+          "Análise combinatória",
+          "Probabilidade",
+          "Geometria Plana e Espacial",
+          "Projeto Iniciante (alunos com menos de 30 acertos)",
+          "Projeto Elite (alunos 35+ em matemática)",
+          "Habilidades ENEM com Brow",
+          "Revisão espaçada garantida",
+          "Garantia de 7 dias"
+        ],
+        "bonuses": [
+          "Cobrança mensal automática",
+          "Cancele quando quiser",
+          "Curso de Linguagens Gravado",
+          "Curso nas Férias (revisão geral)",
+          "50% de Desconto no curso Desumanidades",
+          "50% de Desconto no Curso de CN Gravado"
+        ],
+        "button": {
+          "text": "Assinar agora",
+          "style": "outline",
+          "url": "https://chk.eduzz.com/R9JJ4QDE9X"
         }
       }
     ]
   },
   "miniCourses": {
-    "title": "Cursos Complementares",
+    "title": "COMBO DE CURSOS",
     "subtitle": "Expanda ainda mais seus conhecimentos",
     "courses": [
       {
-        "title": "Curso Básico de Matemática",
+        "title": "COMBO",
         "icon": "📊",
-        "price": "R$ 199,00",
+        "price": "aguarde",
         "gradient": "blue-dark"
       },
       {
-        "title": "Física para Iniciantes",
+        "title": "COMBO",
         "icon": "⚛️",
-        "price": "R$ 179,00",
+        "price": "aguarde",
         "gradient": "blue-medium"
       },
       {
-        "title": "Química Orgânica",
+        "title": "COMBO",
         "icon": "🧪",
-        "price": "R$ 189,00",
+        "price": "aguarde",
         "gradient": "blue-light"
       },
       {
-        "title": "Biologia Celular",
+        "title": "COMBO",
         "icon": "🦠",
-        "price": "R$ 169,00",
+        "price": "aguarde",
         "gradient": "blue-dark"
       },
       {
-        "title": "Redação Nota 1000",
+        "title": "COMBO",
         "icon": "✍️",
-        "price": "R$ 249,00",
+        "price": "aguarde",
         "gradient": "yellow"
       },
       {
-        "title": "História do Brasil",
+        "title": "COMBO",
         "icon": "📚",
-        "price": "R$ 159,00",
+        "price": "aguarde",
         "gradient": "blue-medium"
       },
       {
-        "title": "Geografia Mundial",
+        "title": "COMBO",
         "icon": "🌍",
-        "price": "R$ 159,00",
+        "price": "aguarde",
         "gradient": "blue-light"
-      },
-      {
-        "title": "Inglês Instrumental",
-        "icon": "🗣️",
-        "price": "R$ 199,00",
-        "gradient": "yellow"
       }
     ]
   },

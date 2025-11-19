@@ -6,8 +6,151 @@
 class BrowflixLanding {
   constructor() {
     this.config = null;
-    this.cacheBustVersion = "2024110201"; // Versão para cache bust de imagens
+    this.cacheBustVersion = "2024110204"; // Versão para cache bust de imagens
+    // Detectar caminho base automaticamente
+    console.log("🔍 Iniciando detecção de basePath...");
+    this.basePath = this.detectBasePath();
+    console.log("📁 BasePath final:", this.basePath || "(vazio)");
     this.init();
+  }
+
+  /**
+   * Detecta o caminho base da aplicação
+   * Funciona tanto na raiz quanto em subpastas
+   */
+  detectBasePath() {
+    try {
+      // Tentar detectar pelo script src
+      const scriptTag = document.querySelector('script[src*="main.js"]');
+      if (scriptTag && scriptTag.src) {
+        const url = new URL(scriptTag.src);
+        const pathParts = url.pathname.split("/").filter((p) => p); // Remover strings vazias
+        console.log("🔍 Path parts detectados:", pathParts);
+
+        // Remover 'assets/js/main.js' e manter apenas o caminho base
+        const assetsIndex = pathParts.indexOf("assets");
+        if (assetsIndex > 0) {
+          const basePath = "/" + pathParts.slice(0, assetsIndex).join("/");
+          console.log("✅ BasePath detectado:", basePath);
+          return basePath;
+        }
+        // Se não encontrar 'assets', usar apenas o caminho até o último '/'
+        if (pathParts.length >= 3) {
+          const basePath = "/" + pathParts.slice(0, -3).join("/");
+          console.log("✅ BasePath detectado (fallback):", basePath);
+          return basePath;
+        }
+      }
+    } catch (e) {
+      console.warn("⚠️ Erro ao detectar basePath:", e);
+    }
+    // Fallback: usar caminho relativo vazio (vai usar ./assets/...)
+    console.log("⚠️ BasePath não detectado, usando caminho relativo");
+    return "";
+  }
+
+  /**
+   * Corrige o caminho de uma imagem para funcionar em qualquer estrutura de pastas
+   * @param {string} imagePath - Caminho da imagem (ex: 'assets/images/test.png')
+   * @returns {string} - Caminho corrigido
+   */
+  getImageUrl(imagePath) {
+    if (!imagePath) return "";
+
+    // Se já é uma URL absoluta ou começa com http/https, retornar como está
+    if (
+      imagePath.startsWith("http://") ||
+      imagePath.startsWith("https://") ||
+      imagePath.startsWith("//")
+    ) {
+      return imagePath;
+    }
+
+    // Se começa com /, já é um caminho absoluto a partir da raiz
+    if (imagePath.startsWith("/")) {
+      return `${imagePath}?v=${this.cacheBustVersion}`;
+    }
+
+    // Caminho relativo - adicionar basePath se necessário
+    const base = this.basePath || "";
+
+    // Se temos basePath (ex: "/landing-browflix"), construir caminho completo
+    if (base) {
+      // Garantir que base começa com / e não termina com /
+      const cleanBase = base.startsWith("/") ? base : "/" + base;
+      const normalizedBase = cleanBase.endsWith("/")
+        ? cleanBase.slice(0, -1)
+        : cleanBase;
+      // Construir caminho: /landing-browflix/assets/images/...
+      const finalUrl = `${normalizedBase}/${imagePath}?v=${this.cacheBustVersion}`;
+      // Log apenas para debug (comentar em produção se necessário)
+      // console.log(`🖼️ getImageUrl: ${imagePath} → ${finalUrl}`);
+      return finalUrl;
+    }
+
+    // Se não há basePath, usar caminho relativo normal
+    return `${imagePath}?v=${this.cacheBustVersion}`;
+  }
+
+  /**
+   * Corrige imagens estáticas no HTML que podem ter caminhos relativos incorretos
+   */
+  fixStaticImages() {
+    try {
+      console.log("🔧 Iniciando correção de imagens estáticas...");
+      console.log("📁 BasePath atual:", this.basePath);
+
+      // Buscar TODAS as imagens no DOM e verificar quais precisam correção
+      const allImages = document.querySelectorAll("img");
+      let correctedCount = 0;
+
+      allImages.forEach((img) => {
+        const originalSrc = img.getAttribute("src");
+        if (!originalSrc) return;
+
+        // Verificar se começa com 'assets/' (mesmo que tenha query string)
+        const cleanSrc = originalSrc.split("?")[0];
+        if (cleanSrc.startsWith("assets/")) {
+          const correctedSrc = this.getImageUrl(cleanSrc);
+          // Sempre atualizar se o caminho for diferente OU se não começar com /
+          // Isso garante que imagens relativas sejam sempre corrigidas
+          if (correctedSrc !== originalSrc || !originalSrc.startsWith("/")) {
+            img.src = correctedSrc;
+            correctedCount++;
+            console.log(
+              `🔧 Corrigido caminho da imagem: ${originalSrc} → ${correctedSrc}`
+            );
+          }
+        }
+      });
+
+      console.log(`✅ Total de imagens corrigidas: ${correctedCount}`);
+
+      // Também corrigir links de CSS e outros recursos se necessário
+      const allLinks = document.querySelectorAll("link[href]");
+      let correctedLinksCount = 0;
+
+      allLinks.forEach((link) => {
+        const originalHref = link.getAttribute("href");
+        if (!originalHref) return;
+
+        const cleanHref = originalHref.split("?")[0];
+        if (cleanHref.startsWith("assets/")) {
+          const correctedHref = this.getImageUrl(cleanHref);
+          if (correctedHref !== originalHref) {
+            link.href = correctedHref;
+            correctedLinksCount++;
+            console.log(
+              `🔧 Corrigido caminho do recurso: ${originalHref} → ${correctedHref}`
+            );
+          }
+        }
+      });
+
+      console.log(`✅ Total de recursos corrigidos: ${correctedLinksCount}`);
+    } catch (error) {
+      console.warn("⚠️ Erro ao corrigir imagens estáticas:", error);
+    }
   }
 
   async init() {
@@ -25,6 +168,13 @@ class BrowflixLanding {
       this.initFormHandling();
       this.initTestimonialCarousel();
       this.initResponsiveHandling();
+
+      // Corrigir imagens estáticas no HTML após um pequeno delay
+      // para garantir que todas as renderizações dinâmicas terminem
+      setTimeout(() => {
+        console.log("⏰ Executando fixStaticImages após delay...");
+        this.fixStaticImages();
+      }, 200);
 
       // Marcar como carregado
       document.body.classList.add("js-loaded");
@@ -44,20 +194,20 @@ class BrowflixLanding {
 
   async loadConfig() {
     try {
-      // Detecta o caminho base automaticamente
-      const basePath =
-        document
-          .querySelector('script[src*="main.js"]')
-          ?.src.split("/assets/")[0] || "";
-
-      // Usar a mesma versão do cache bust para consistência
+      // Usar o basePath já detectado no construtor
       const cacheBust = `?v=${this.cacheBustVersion}`;
-      const configPath = basePath
-        ? `${basePath}/config/config.json${cacheBust}`
+      const base = this.basePath || "";
+      const separator = base && !base.endsWith("/") ? "/" : "";
+      const configPath = base
+        ? `${base}${separator}config/config.json${cacheBust}`
         : `./config/config.json${cacheBust}`;
 
       console.log("🔍 Tentando carregar config de:", configPath);
       console.log("🔖 Versão do cache bust:", this.cacheBustVersion);
+      console.log(
+        "📁 Base path detectado:",
+        this.basePath || "(vazio - usando relativo)"
+      );
 
       // Forçar requisição sem cache
       const response = await fetch(configPath, {
@@ -1963,7 +2113,11 @@ class BrowflixLanding {
                     }">
                         ${
                           student.image
-                            ? `<img src="${student.image}?v=${this.cacheBustVersion}" alt="${student.name}" class="w-full h-full object-cover rounded-lg">`
+                            ? `<img src="${this.getImageUrl(
+                                student.image
+                              )}" alt="${
+                                student.name
+                              }" class="w-full h-full object-cover rounded-lg">`
                             : "🎓"
                         }
                     </div>
@@ -2011,7 +2165,7 @@ class BrowflixLanding {
       if (fallbackDiv) {
         // Criar elemento de imagem
         const img = document.createElement("img");
-        img.src = config.banner;
+        img.src = this.getImageUrl(config.banner);
         img.alt = "Didática Browflix";
         img.className = "absolute inset-0 w-full h-full object-cover";
         img.onerror = function () {
@@ -2381,10 +2535,10 @@ class BrowflixLanding {
             }" ${isCustomThumbnail ? 'data-custom-thumbnail="true"' : ""}`;
             cursorClass = "cursor-pointer video-thumbnail";
 
-            // Adicionar cache bust se for imagem customizada
+            // Usar getImageUrl para corrigir o caminho se for imagem customizada
             const imageUrl =
               feature.thumbnail || feature.image
-                ? `${thumbnailUrl}?v=${this.cacheBustVersion}`
+                ? this.getImageUrl(thumbnailUrl)
                 : thumbnailUrl;
 
             imageContent = `
@@ -2407,7 +2561,9 @@ class BrowflixLanding {
             imageContent = `<div class="text-gray-400 text-center p-4"><div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">400×400px</div><span class="text-sm">Vídeo não disponível</span></div>`;
           }
         } else if (feature.banner) {
-          imageContent = `<img src="${feature.banner}?v=${this.cacheBustVersion}" alt="${feature.title}" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>400x400px<br/><span class=\\'text-sm\\'>Banner não disponível</span></div>';" />`;
+          imageContent = `<img src="${this.getImageUrl(feature.banner)}" alt="${
+            feature.title
+          }" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>400x400px<br/><span class=\\'text-sm\\'>Banner não disponível</span></div>';" />`;
         } else {
           imageContent = `<div class="text-gray-400 text-center p-4"><div style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">400×400px</div><span class="text-sm">Banner não disponível</span></div>`;
         }
@@ -2556,7 +2712,11 @@ class BrowflixLanding {
                     <div class="${bannerContainerClass}" ${bannerDataAttributes}>
                         ${
                           course.banner
-                            ? `<img src="${course.banner}?v=${this.cacheBustVersion}" alt="${course.title}" class="w-full h-full object-cover" style="width: 320px; height: 240px;" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>Banner não disponível<br/><span class=\\'text-sm\\'>320x240px</span></div>';" />`
+                            ? `<img src="${this.getImageUrl(
+                                course.banner
+                              )}" alt="${
+                                course.title
+                              }" class="w-full h-full object-cover" style="width: 320px; height: 240px;" onerror="this.parentElement.innerHTML='<div class=\\'text-gray-400 text-center p-4\\'>Banner não disponível<br/><span class=\\'text-sm\\'>320x240px</span></div>';" />`
                             : `<div class="text-gray-400 text-center p-4">Banner não disponível<br/><span class="text-sm">Dimensões: 320x240px</span></div>`
                         }
                         ${
@@ -2638,7 +2798,9 @@ class BrowflixLanding {
 
         // Avatar ou placeholder
         const avatarContent = testimonial.avatar
-          ? `<img src="${testimonial.avatar}?v=${this.cacheBustVersion}" alt="${testimonial.name}" class="w-20 h-20 rounded-full object-cover" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'80\\' height=\\'80\\'%3E%3Crect width=\\'80\\' height=\\'80\\' fill=\\'%23e5e7eb\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' dy=\\'.3em\\' fill=\\'%239ca3af\\' font-size=\\'12\\'%3E80x80px%3C/text%3E%3C/svg%3E';" />`
+          ? `<img src="${this.getImageUrl(testimonial.avatar)}" alt="${
+              testimonial.name
+            }" class="w-20 h-20 rounded-full object-cover" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'80\\' height=\\'80\\'%3E%3Crect width=\\'80\\' height=\\'80\\' fill=\\'%23e5e7eb\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' dy=\\'.3em\\' fill=\\'%239ca3af\\' font-size=\\'12\\'%3E80x80px%3C/text%3E%3C/svg%3E';" />`
           : `<div class="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
                 <div class="text-center">
                   <div class="text-xs text-gray-500 font-semibold">80x80px</div>
@@ -2737,19 +2899,37 @@ class BrowflixLanding {
     if (!container || !config.form?.fields) return;
 
     const fieldsHTML = config.form.fields
-      .map(
-        (field) => `
-            <div>
-                <input
+      .map((field) => {
+        const isTextarea = field.type === "textarea";
+        const fieldElement = isTextarea
+          ? `<textarea
+                    name="${field.name}"
+                    placeholder="${field.placeholder || ""}"
+                    class="form-field"
+                    rows="4"
+                    ${field.required ? "required" : ""}
+                ></textarea>`
+          : `<input
                     type="${field.type}"
                     name="${field.name}"
-                    placeholder="${field.placeholder}"
+                    placeholder="${field.placeholder || ""}"
                     class="form-field"
                     ${field.required ? "required" : ""}
-                />
+                />`;
+
+        const title = field.title
+          ? `<label class="block text-sm font-medium text-gray-700 mb-2">${field.title}</label>`
+          : "";
+
+        const fullWidth = isTextarea ? "md:col-span-2" : "";
+
+        return `
+            <div class="${fullWidth}">
+                ${title}
+                ${fieldElement}
             </div>
-        `
-      )
+        `;
+      })
       .join("");
 
     container.innerHTML = fieldsHTML;
@@ -3053,7 +3233,13 @@ class BrowflixLanding {
   }
 
   validateForm(data) {
-    const requiredFields = ["nome", "email", "telefone", "cidade", "profissao"];
+    const requiredFields = [
+      "nome",
+      "email",
+      "telefone",
+      "cidade",
+      "escolaridade",
+    ];
     return requiredFields.every(
       (field) => data[field] && data[field].trim() !== ""
     );
@@ -3072,7 +3258,7 @@ class BrowflixLanding {
 • E-mail: ${data.email}
 • Telefone: ${data.telefone}
 • Cidade: ${data.cidade}
-• Profissão/Área: ${data.profissao}
+• Grau de escolaridade: ${data.escolaridade}
 
 Gostaria de receber mais informações sobre os planos e valores.`;
   }
