@@ -1681,8 +1681,8 @@ class BrowflixLanding {
             color: "green",
             highlighted: false,
             originalPrice: "De R$ 1.500,00 por:",
-            price: "12x R$ 67,34",
-            installments: "ou R$ 700 à vista",
+            price: "12x R$ 82,74",
+            installments: "ou R$ 800 à vista",
 
             features: [
               "Curso de Matemática Básica",
@@ -1718,8 +1718,8 @@ class BrowflixLanding {
             highlighted: true,
             badge: "O PLANO MAIS ESCOLHIDO",
             originalPrice: "De R$ 3.000,00 por:",
-            price: "12x R$ 106,48",
-            installments: "ou R$ 1100 à vista",
+            price: "12x R$ 139,62",
+            installments: "ou R$ 1.350,00 à vista",
             features: [
               "AULAS AO VIVO 19h às 22h de Terça Feira(Lembrando que elas ficam gravadas) Início: 14/01/2026",
               "Curso de Matemática Básica",
@@ -1744,6 +1744,7 @@ class BrowflixLanding {
               "Simulados mensais com relatórios",
               "Grupo de dúvidas com 25 acadêmicos de Medicina",
               "Desconto no material físico",
+              "(OS 30 primeiros ganham o material FÍSICO, 800 páginas)",
             ],
             button: {
               text: "Quero me matricular agora",
@@ -1758,8 +1759,8 @@ class BrowflixLanding {
             color: "blue",
             highlighted: false,
             originalPrice: "De R$ 1.200,00 por:",
-            price: "12x R$ 57,72",
-            installments: "ou R$ 600 à vista",
+            price: "12x R$ 82,74",
+            installments: "ou R$ 800 à vista",
 
             features: [
               "Aulas ao vivo (quarta e quinta à noite)",
