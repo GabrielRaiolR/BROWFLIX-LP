@@ -3,7 +3,7 @@
   "_lastUpdate": "2024-11-02T00:00:00Z",
   "site": {
     "title": "Plataforma Browflix - Intensivo Medicina ENEM",
-    "description": "Didática mágica, resultados garantidos. A única plataforma do Brasil que GARANTE seu aprendizado.",
+    "description": "Brow é polêmico? Sim! Mas não tem melhor que ele em sala de aula.",
     "logo": {
       "text": "MATEMÁTICA BROW",
       "subtitle": "Preparatório para o ENEM",
@@ -31,7 +31,7 @@
   },
   "approvedStudents": {
     "title": "Seja um <span class=\"text-accent\">aprovado</span><br />em Medicina",
-    "description": "Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class=\"text-accent font-semibold\">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.",
+    "description": "Nos próximos meses você vai ser um dos primeiros a entrar na faculdade de <span class=\"font-semibold text-accent\">Medicina</span>, sem precisar ficar ansioso com notas de corte e classificações.",
     "subtitle": "Assim como nossos alunos:",
     "students": [
       {
@@ -106,7 +106,7 @@
     "banner": "assets/images/banners/Plataforma-home.png",
     "button": {
       "text": "Quero me matricular →",
-      "url": "#contato"
+      "url": "#planos"
     }
   },
   "learningObjectives": {
@@ -114,19 +114,23 @@
     "objectives": [
       {
         "number": 1,
-        "text": "Dominar todas as<br />matérias do ENEM"
+        "text": "📚 Domínio de toda a Matemática pro Enem",
+        "description": "Você deve estudar de forma direcionada pra prova, e saber o que vai e como cai!! E o Brow mastiga isso pra você!"
       },
       {
         "number": 2,
-        "text": "Resolver questões complexas<br />com facilidade e rapidez"
+        "text": "⚡ Resolução Rápida e Eficiente",
+        "description": "Aprenda com o Brow a destrinchar questões complexas de forma simples e veloz, usando técnicas exclusivas que deixam você sempre um passo à frente da prova."
       },
       {
         "number": 3,
-        "text": "Gestão do tempo e produtividade<br />com técnicas específicas para<br />preparação para o ENEM"
+        "text": "⏱️ Gestão de Tempo Inteligente",
+        "description": "Domine, com o Brow, os métodos de produtividade e organização que realmente funcionam para quem quer resultado de verdade no ENEM — sem enrolação, sem desgaste desnecessário."
       },
       {
         "number": 4,
-        "text": "Estratégias de estudo<br />validadas por centenas de<br />aprovados em Medicina"
+        "text": "🎯 Estratégias Validadas",
+        "description": "Métodos de estudo comprovados por centenas de estudantes aprovados em Medicina"
       }
     ],
     "button": {
@@ -185,7 +189,7 @@
     ],
     "button": {
       "text": "Quero ter acesso a tudo isso",
-      "url": "#contato"
+      "url": "#planos"
     }
   },
   "courses": {
@@ -209,7 +213,7 @@
       {
         "title": "Funções e Financeira",
         "subtitle": "Matemática Financeira",
-        "banner": "assets/images/banners/Funções e financeira.png",
+        "banner": "assets/images/banners/Funções e Financeira.png",
         "videoUrl": "",
         "videoType": "vimeo"
       },
@@ -223,7 +227,7 @@
       {
         "title": "Geometria Plana",
         "subtitle": "e Espacial",
-        "banner": "assets/images/banners/Geometria Plana e espacial.png",
+        "banner": "assets/images/banners/Geometria Plana e Espacial.png",
         "videoUrl": "",
         "videoType": "vimeo"
       },
@@ -265,7 +269,7 @@
     ],
     "button": {
       "text": "Quero ter acesso aos cursos agora",
-      "url": "#contato"
+      "url": "#planos"
     }
   },
   "testimonials": {
@@ -303,28 +307,28 @@
         "title": "Bônus 01 - Curso Gravado de CN",
         "description": "Curso de Ciencias da Natureza Completo Gravado com aulas de Física, Química e Biologia.",
         "icon": "🔬",
-        "gradient": "from-purple-500 to-blue-400",
+        "gradient": "from-blue-500 to-purple-600",
         "price": "GRÁTIS"
       },
       {
         "title": "Bônus 02 - Curso das férias Gravado",
         "description": "Ganhe meu curso de completo de todas as matérias gravado para você aproveitar as férias.",
         "icon": "🎓",
-        "gradient": "from-purple-700 to-orange-500",
+        "gradient": "from-pink-500 to-red-500",
         "price": "GRÁTIS"
       },
       {
-        "title": "Bônus 03 - 50% De desconto no Desumanidades (curso de humanas que mais aprova no Norte do Brasil)",
+        "title": "Bônus 03 -  50% De desconto no Desumanidades (curso de humanas que mais aprova no Norte do Brasil)",
         "description": "Nosso carro chefe dos cursos do Brow! Aproveite 50% de desconto para você aproveitar o melhor curso de humanas que mais aprova no Norte do Brasil.",
         "icon": "🎯",
-        "gradient": "from-pink-500 to-blue-400",
+        "gradient": "from-cyan-500 to-blue-500",
         "price": "GRÁTIS"
       }
     ],
     "footerText": "Tudo isso <strong>grátis</strong> para você,<br />porque é um <strong>presente!</strong>",
     "button": {
       "text": "Quero garantir meus bônus agora",
-      "url": "#contato"
+      "url": "#planos"
     }
   },
   "contact": {
@@ -358,16 +362,9 @@
         },
         {
           "type": "text",
-          "name": "escolaridade",
-          "placeholder": "Grau de escolaridade",
+          "name": "Curso que deseja fazer",
+          "placeholder": "Matemática, Física, Química, Biologia, etc.",
           "required": true
-        },
-        {
-          "type": "textarea",
-          "name": "descricao",
-          "title": "Quero saber sobre os combos e planos com um Especialista",
-          "placeholder": "Quero saber sobre os combos e planos com um Especialista",
-          "required": false
         }
       ],
       "button": {
@@ -386,7 +383,7 @@
         "highlighted": false,
         "originalPrice": "De R$ 1.500,00 por:",
         "price": "12x R$ 82,74",
-        "installments": "ou R$ 800 à vista",
+        "installments": "ou R$ R$ 879,96 à vista",
         "features": [
           "Curso de Matemática Básica",
           "Curso de Matemática básica Pro Enem",
@@ -445,7 +442,8 @@
           "Aulas Gravadas de 2025",
           "Simulados mensais com relatórios",
           "Grupo de dúvidas com 25 acadêmicos de Medicina",
-          "Desconto no material físico"
+          "Desconto no material físico",
+          "(OS 30 primeiros ganham o material FÍSICO, 800 páginas)"
         ],
         "button": {
           "text": "Quero me matricular agora",
@@ -460,8 +458,8 @@
         "color": "blue",
         "highlighted": false,
         "originalPrice": "De R$ 1.200,00 por:",
-        "price": "12x R$ 82,74",
-        "installments": "ou R$ 800 à vista",
+        "price": "12x R$ 88,05",
+        "installments": "ou R$ 851,31 à vista",
         "features": [
           "Aulas ao vivo (quarta e quinta à noite)",
           "Curso de Humanas",
@@ -569,12 +567,15 @@
     ]
   },
   "pedroAssaad": {
-    "title": "Quem é<br /><span style=\"color:rgb(243, 201, 62)\">Victor \"Brow\"?</span>",
+    "title": "Quem é<br /><span class=\"text-blue-footer\">Victor \"Brow\"?</span>",
     "description": [
-      "<strong>Victor \"Brow\"</strong> é Diretor e Fundador do Curso Matemática Brow, empresa que já aprovou mais de <strong>500 alunos</strong> em medicina em universidades públicas e privadas.",
-      "Especialista em <strong>DIDÁTICA MÁGICA</strong> há mais de 15 anos e desenvolvedor do método que já transformou a vida de milhares de estudantes em todo o Brasil.",
-      "Autor de diversos livros sobre técnicas de estudo e metodologias de ensino, Brow é reconhecido nacionalmente por sua capacidade única de simplificar conteúdos complexos.",
-      "<strong>Missão:</strong> Democratizar o acesso ao ensino de qualidade através de uma didática revolucionária que garante resultados."
+      "<strong>Victor \"Brow\"</strong> é educador, estrategista e comunicador — tudo ao mesmo tempo. Não é o professor tradicional: é o mentor que senta ao lado, conecta conteúdo com vida real e transforma estudo em propósito.",
+      "Domina <strong>combinatória, probabilidade e geometria</strong> como quem respira; explica <strong>funções, assíntotas, logaritmos e trigonometria</strong> como quem conta história. Leva o aluno ao <strong>800+</strong> não pelo decorar, mas pelo entender de verdade.",
+      "Já foram mais de <strong>1000 aprovações em Medicina</strong> e mais de <strong>800 notas acima de 800</strong> em Matemática. Uma cultura que virou referência nacional entre cursos independentes.",
+      "Brow não vende aula — vende <strong>transformação de identidade</strong>:<br>\"Quem aprende com o Brow não é qualquer aluno. Quem aprende com o Brow vira alguém que raciocina.\"",
+      "Revolucionador da didática do ENEM, criou método, linguagem, comunidade e um estilo próprio de ensino que mudou a vida de milhares de estudantes.",
+      "É o ponto onde <strong>a matemática encontra o sonho</strong> e onde <strong>resultado encontra sentido</strong>.",
+      "Assim nasceu a <strong>Browlândia</strong> — um ecossistema de confiança, ritmo, pertencimento e alta performance.<br><strong>Espero que você seja o próximo.</strong>"
     ],
     "image": "assets/images/banners/Fundador.png"
   },
@@ -586,7 +587,6 @@
     "social": {
       "facebook": "https://www.facebook.com/profile.php?id=100067189491908",
       "instagram": "https://www.instagram.com/matematicabrow/",
-      "linkedin": "https://www.linkedin.com/company/matematicabrow",
       "youtube": "https://www.youtube.com/@matematicabrow"
     },
     "links": {

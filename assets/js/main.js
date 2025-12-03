@@ -1682,7 +1682,7 @@ class BrowflixLanding {
             highlighted: false,
             originalPrice: "De R$ 1.500,00 por:",
             price: "12x R$ 82,74",
-            installments: "ou R$ 800 à vista",
+            installments: "ou R$ R$ 879,96 à vista",
 
             features: [
               "Curso de Matemática Básica",
@@ -1759,8 +1759,8 @@ class BrowflixLanding {
             color: "blue",
             highlighted: false,
             originalPrice: "De R$ 1.200,00 por:",
-            price: "12x R$ 82,74",
-            installments: "ou R$ 800 à vista",
+            price: "12x R$ 88,05",
+            installments: "ou R$ 851,31 à vista",
 
             features: [
               "Aulas ao vivo (quarta e quinta à noite)",
