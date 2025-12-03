@@ -1493,7 +1493,7 @@ class BrowflixLanding {
           {
             title: "Funções e Financeira",
             subtitle: "Matemática Financeira",
-            banner: "assets/images/banners/Funções e Financeira.png", // Adicione aqui o caminho do banner (320x240px)
+            banner: "assets/images/banners/Funções e financeira.png", // Adicione aqui o caminho do banner (320x240px)
             videoUrl: "", // Exemplo: "https://vimeo.com/123456789"
             videoType: "vimeo", // "vimeo" ou "youtube"
           },
@@ -1508,7 +1508,7 @@ class BrowflixLanding {
           {
             title: "Geometria Plana",
             subtitle: "e Espacial",
-            banner: "assets/images/banners/Geometria Plana e Espacial.png", // Adicione aqui o caminho do banner (320x240px)
+            banner: "assets/images/banners/Geometria Plana e espacial.png", // Adicione aqui o caminho do banner (320x240px)
             videoUrl: "", // Exemplo: "https://vimeo.com/123456789"
             videoType: "vimeo", // "vimeo" ou "youtube"
           },
