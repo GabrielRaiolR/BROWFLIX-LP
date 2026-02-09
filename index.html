@@ -23,7 +23,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css?v=2024110204" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=2024110205" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
@@ -190,7 +190,7 @@
 
             <!-- CTA Buttons -->
             <div
-              class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+              class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
             >
               <a
                 href="#planos"
@@ -199,6 +199,24 @@
               >
                 Quero ser o proximo aprovado em Medicina
               </a>
+            </div>
+
+            <!-- Carrossel Total Aprovados -->
+            <div class="carousel-total-aprovados-wrapper max-w-[945px] mx-auto mb-10 px-4">
+              <div class="carousel-total-aprovados-container relative">
+                <div id="carousel-total-aprovados" class="carousel-total-aprovados-track">
+                  <!-- Slides injetados pelo JS -->
+                </div>
+                <button type="button" id="carousel-prev" class="carousel-btn carousel-btn-prev" aria-label="Anterior">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" id="carousel-next" class="carousel-btn carousel-btn-next" aria-label="Próximo">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div id="carousel-dots" class="carousel-dots">
+                <!-- Dots injetados pelo JS -->
+              </div>
             </div>
 
             <!-- Story Timeline -->
@@ -696,26 +714,18 @@
                   <strong>2025</strong> foi seu ano de estudar.<br />
                   <strong>2026</strong> será seu ano de passar no ENEM.
                 </h2>
-                <p class="text-blue-600 font-medium" id="contact-subtitle">
-                  Preencha seus dados e receba uma proposta personalizada
-                </p>
               </div>
 
-              <form class="space-y-4" id="contact-form">
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-4"
-                  id="contact-fields"
-                >
-                  <!-- Campos do formulário serão gerados dinamicamente -->
-                </div>
-
-                <button
-                  type="submit"
+              <div class="space-y-4">
+                <a
+                  href="#"
                   id="contact-button"
-                  class="w-full text-white py-4 text-lg font-bold rounded-lg mt-6 transition-colors bg-primary"
+                  class="w-full inline-block text-center text-white py-4 text-lg font-bold rounded-lg mt-6 transition-colors bg-primary hover:opacity-90"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   QUERO FAZER PARTE
-                </button>
+                </a>
 
                 <p
                   class="text-xs text-gray-500 text-center mt-4"
@@ -724,7 +734,7 @@
                   Ao clicar em "QUERO FAZER PARTE", você concorda com nossos
                   termos de uso e política de privacidade.
                 </p>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -887,12 +897,12 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js?v=2024110204"></script>
+    <script src="assets/js/main.js?v=2024110205"></script>
 
     <!-- Script de detecção e limpeza de cache -->
     <script>
       // Versão atual do site
-      const SITE_VERSION = "2024110204";
+      const SITE_VERSION = "2024110205";
 
       // Limpar service workers se existirem
       if ("serviceWorker" in navigator) {

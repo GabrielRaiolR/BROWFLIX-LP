@@ -6,7 +6,7 @@
 class BrowflixLanding {
   constructor() {
     this.config = null;
-    this.cacheBustVersion = "2024110204"; // Versão para cache bust de imagens
+    this.cacheBustVersion = "2024110205"; // Versão para cache bust de imagens
     // Detectar caminho base automaticamente
     console.log("🔍 Iniciando detecção de basePath...");
     this.basePath = this.detectBasePath();
@@ -50,6 +50,13 @@ class BrowflixLanding {
   }
 
   /**
+   * Codifica cada parte do caminho para URLs (resolve problema com espaços)
+   */
+  encodePathSegments(path) {
+    return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+  }
+
+  /**
    * Corrige o caminho de uma imagem para funcionar em qualquer estrutura de pastas
    * @param {string} imagePath - Caminho da imagem (ex: 'assets/images/test.png')
    * @returns {string} - Caminho corrigido
@@ -66,9 +73,12 @@ class BrowflixLanding {
       return imagePath;
     }
 
+    // Codificar espaços e caracteres especiais no path
+    const encodedPath = this.encodePathSegments(imagePath.startsWith("/") ? imagePath.slice(1) : imagePath);
+
     // Se começa com /, já é um caminho absoluto a partir da raiz
     if (imagePath.startsWith("/")) {
-      return `${imagePath}?v=${this.cacheBustVersion}`;
+      return `/${encodedPath}?v=${this.cacheBustVersion}`;
     }
 
     // Caminho relativo - adicionar basePath se necessário
@@ -82,14 +92,14 @@ class BrowflixLanding {
         ? cleanBase.slice(0, -1)
         : cleanBase;
       // Construir caminho: /landing-browflix/assets/images/...
-      const finalUrl = `${normalizedBase}/${imagePath}?v=${this.cacheBustVersion}`;
+      const finalUrl = `${normalizedBase}/${encodedPath}?v=${this.cacheBustVersion}`;
       // Log apenas para debug (comentar em produção se necessário)
       // console.log(`🖼️ getImageUrl: ${imagePath} → ${finalUrl}`);
       return finalUrl;
     }
 
     // Se não há basePath, usar caminho relativo normal
-    return `${imagePath}?v=${this.cacheBustVersion}`;
+    return `${encodedPath}?v=${this.cacheBustVersion}`;
   }
 
   /**
@@ -166,6 +176,7 @@ class BrowflixLanding {
       // Inicializar funcionalidades
       this.initSmoothScroll();
       this.initFormHandling();
+      this.initHeroCarousel();
       this.initTestimonialCarousel();
       this.initResponsiveHandling();
 
@@ -231,6 +242,8 @@ class BrowflixLanding {
 
       console.log("🔍 Versão do config carregado:", configVersion);
       console.log("🔍 Versão esperada:", expectedVersion);
+      console.log("🎠 Config tem carousel?", !!loadedConfig.hero?.carousel?.images);
+      console.log("🎠 Qtd imagens carousel:", loadedConfig.hero?.carousel?.images?.length || 0);
 
       // Se não tiver a versão correta ou não tiver o badge, usar config padrão
       if (configVersion !== expectedVersion || !loadedConfig.hero?.badge) {
@@ -293,6 +306,18 @@ class BrowflixLanding {
         button: {
           text: "Quero ser o proximo aprovado em Medicina",
           url: "#planos",
+        },
+        carousel: {
+          images: [
+            "assets/images/Total Aprovados/APROVADOS SISU.png",
+            "assets/images/Total Aprovados/APROVADOS TOTAIS.png",
+            "assets/images/Total Aprovados/APROVADOS UEPA.png",
+            "assets/images/Total Aprovados/APROVADOS UFPA.png",
+            "assets/images/Total Aprovados/DESUMANI APROVADOS CESUPA.png",
+            "assets/images/Total Aprovados/DESUMANI APROVADOS SISU.png",
+            "assets/images/Total Aprovados/DESUMANI APROVADOS TOTAIS.png",
+            "assets/images/Total Aprovados/DESUMANI APROVADOS UEPA.png",
+          ],
         },
       },
       approvedStudents: {
@@ -1631,46 +1656,12 @@ class BrowflixLanding {
       contact: {
         title:
           "<strong>2025</strong> foi seu ano de estudar.<br /><strong>2026</strong> será seu ano de passar no ENEM.",
-        subtitle: "Preencha seus dados e receba uma proposta personalizada",
-        form: {
-          fields: [
-            {
-              type: "text",
-              name: "nome",
-              placeholder: "Nome completo",
-              required: true,
-            },
-            {
-              type: "email",
-              name: "email",
-              placeholder: "E-mail",
-              required: true,
-            },
-            {
-              type: "tel",
-              name: "telefone",
-              placeholder: "Telefone",
-              required: true,
-            },
-            {
-              type: "text",
-              name: "cidade",
-              placeholder: "Cidade",
-              required: true,
-            },
-            {
-              type: "text",
-              name: "Curso que deseja fazer",
-              placeholder: "Matemática, Física, Química, Biologia, etc.",
-              required: true,
-            },
-          ],
-          button: {
-            text: "QUERO FAZER PARTE",
-          },
-          disclaimer:
-            'Ao clicar em "QUERO FAZER PARTE", você concorda com nossos termos de uso e política de privacidade.',
+        button: {
+          text: "QUERO FAZER PARTE",
+          url: "https://wa.me/5511987654321?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Intensivo%20Medicina%20ENEM%20da%20Plataforma%20Browflix.",
         },
+        disclaimer:
+          'Ao clicar em "QUERO FAZER PARTE", você concorda com nossos termos de uso e política de privacidade.',
       },
       pricing: {
         plans: [
@@ -1953,6 +1944,14 @@ class BrowflixLanding {
     this.updateElement("hero-title", this.config.hero?.title);
     this.updateElement("hero-description", this.config.hero?.description);
     this.updateElement("hero-button", this.config.hero?.button?.text);
+
+    // Renderizar carrossel do hero
+    try {
+      this.renderHeroCarousel();
+      console.log("✅ Carrossel do Hero renderizado");
+    } catch (e) {
+      console.error("❌ Erro ao renderizar Carrossel do Hero:", e);
+    }
 
     // Aplicar outras seções com proteção contra erros
     try {
@@ -2882,53 +2881,107 @@ class BrowflixLanding {
     container.innerHTML = bonusHTML;
   }
 
+  renderHeroCarousel() {
+    const images = this.config.hero?.carousel?.images || [];
+    const container = document.getElementById("carousel-total-aprovados");
+    const dotsContainer = document.getElementById("carousel-dots");
+    
+    console.log("🎠 Renderizando carrossel do hero. Total de imagens:", images.length);
+    
+    if (!container || !dotsContainer || images.length === 0) {
+      // Esconder carrossel se não houver imagens
+      const wrapper = document.querySelector(".carousel-total-aprovados-wrapper");
+      if (wrapper) wrapper.style.display = "none";
+      console.warn("⚠️ Carrossel não renderizado:", !container ? "container não encontrado" : !dotsContainer ? "dots não encontrado" : "sem imagens");
+      return;
+    }
+
+    // Renderizar slides
+    const slidesHTML = `
+      <div class="carousel-total-aprovados-slides" id="carousel-slides">
+        ${images.map((img, index) => {
+          const imgUrl = this.getImageUrl(img);
+          console.log(`📸 Imagem ${index + 1}: ${img} → ${imgUrl}`);
+          return `
+          <div class="carousel-slide">
+            <img src="${imgUrl}" alt="Total aprovados ${index + 1}" loading="lazy" />
+          </div>
+        `;
+        }).join("")}
+      </div>
+    `;
+    container.innerHTML = slidesHTML;
+
+    // Renderizar dots
+    const dotsHTML = images.map((_, index) => `
+      <button type="button" class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="Ir para slide ${index + 1}"></button>
+    `).join("");
+    dotsContainer.innerHTML = dotsHTML;
+    
+    console.log("✅ Carrossel do hero renderizado com", images.length, "imagens");
+  }
+
+  initHeroCarousel() {
+    const slides = document.getElementById("carousel-slides");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+    const dotsContainer = document.getElementById("carousel-dots");
+    
+    if (!slides || !prevBtn || !nextBtn) return;
+
+    const totalSlides = slides.children.length;
+    if (totalSlides === 0) return;
+
+    let currentIndex = 0;
+
+    const updateCarousel = () => {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Atualizar dots
+      const dots = dotsContainer?.querySelectorAll(".carousel-dot");
+      dots?.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+    };
+
+    const goToSlide = (index) => {
+      currentIndex = (index + totalSlides) % totalSlides;
+      updateCarousel();
+    };
+
+    prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
+
+    // Dots navigation
+    dotsContainer?.addEventListener("click", (e) => {
+      const dot = e.target.closest(".carousel-dot");
+      if (dot && dot.dataset.index) {
+        goToSlide(parseInt(dot.dataset.index, 10));
+      }
+    });
+
+    // Auto-play (opcional - 5 segundos)
+    setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 5000);
+  }
+
   renderContact() {
     const config = this.config.contact;
     if (!config) return;
 
     this.updateElement("contact-title", config.title);
-    this.updateElement("contact-subtitle", config.subtitle);
-    this.updateElement("contact-button", config.form?.button?.text);
-    this.updateElement("contact-disclaimer", config.form?.disclaimer);
+    this.updateElement("contact-disclaimer", config.disclaimer || "");
 
-    const container = document.getElementById("contact-fields");
-    if (!container || !config.form?.fields) return;
-
-    const fieldsHTML = config.form.fields
-      .map((field) => {
-        const isTextarea = field.type === "textarea";
-        const fieldElement = isTextarea
-          ? `<textarea
-                    name="${field.name}"
-                    placeholder="${field.placeholder || ""}"
-                    class="form-field"
-                    rows="4"
-                    ${field.required ? "required" : ""}
-                ></textarea>`
-          : `<input
-                    type="${field.type}"
-                    name="${field.name}"
-                    placeholder="${field.placeholder || ""}"
-                    class="form-field"
-                    ${field.required ? "required" : ""}
-                />`;
-
-        const title = field.title
-          ? `<label class="block text-sm font-medium text-gray-700 mb-2">${field.title}</label>`
-          : "";
-
-        const fullWidth = isTextarea ? "md:col-span-2" : "";
-
-        return `
-            <div class="${fullWidth}">
-                ${title}
-                ${fieldElement}
-            </div>
-        `;
-      })
-      .join("");
-
-    container.innerHTML = fieldsHTML;
+    const button = document.getElementById("contact-button");
+    if (button && config.button) {
+      button.textContent = config.button.text;
+      if (config.button.url) {
+        button.href = config.button.url;
+        button.setAttribute("target", "_blank");
+        button.setAttribute("rel", "noopener noreferrer");
+      }
+    }
   }
 
   renderPricing() {
@@ -3198,13 +3251,7 @@ class BrowflixLanding {
   }
 
   initFormHandling() {
-    const form = document.getElementById("contact-form");
-    if (!form) return;
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      this.handleFormSubmit(form);
-    });
+    // Formulário removido: botão de contato é apenas link
   }
 
   handleFormSubmit(form) {

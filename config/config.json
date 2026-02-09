@@ -1,5 +1,5 @@
 {
-  "_version": "2024110204",
+  "_version": "2024110205",
   "_lastUpdate": "2024-11-02T00:00:00Z",
   "site": {
     "title": "Plataforma Browflix - Intensivo Medicina ENEM",
@@ -27,6 +27,18 @@
     "button": {
       "text": "Quero ser o proximo aprovado em Medicina",
       "url": "#planos"
+    },
+    "carousel": {
+      "images": [
+        "assets/images/Total Aprovados/APROVADOS SISU.png",
+        "assets/images/Total Aprovados/APROVADOS TOTAIS.png",
+        "assets/images/Total Aprovados/APROVADOS UEPA.png",
+        "assets/images/Total Aprovados/APROVADOS UFPA.png",
+        "assets/images/Total Aprovados/DESUMANI APROVADOS CESUPA.png",
+        "assets/images/Total Aprovados/DESUMANI APROVADOS SISU.png",
+        "assets/images/Total Aprovados/DESUMANI APROVADOS TOTAIS.png",
+        "assets/images/Total Aprovados/DESUMANI APROVADOS UEPA.png"
+      ]
     }
   },
   "approvedStudents": {
@@ -333,45 +345,11 @@
   },
   "contact": {
     "title": "<strong>2025</strong> foi seu ano de estudar.<br /><strong>2026</strong> será seu ano de passar no ENEM.",
-    "subtitle": "Preencha seus dados e receba uma proposta personalizada",
-    "form": {
-      "fields": [
-        {
-          "type": "text",
-          "name": "nome",
-          "placeholder": "Nome completo",
-          "required": true
-        },
-        {
-          "type": "email",
-          "name": "email",
-          "placeholder": "E-mail",
-          "required": true
-        },
-        {
-          "type": "tel",
-          "name": "telefone",
-          "placeholder": "Telefone",
-          "required": true
-        },
-        {
-          "type": "text",
-          "name": "cidade",
-          "placeholder": "Cidade",
-          "required": true
-        },
-        {
-          "type": "text",
-          "name": "Curso que deseja fazer",
-          "placeholder": "Matemática, Física, Química, Biologia, etc.",
-          "required": true
-        }
-      ],
-      "button": {
-        "text": "QUERO FAZER PARTE"
-      },
-      "disclaimer": "Ao clicar em \"QUERO FAZER PARTE\", você concorda com nossos termos de uso e política de privacidade."
-    }
+    "button": {
+      "text": "QUERO FAZER PARTE",
+      "url": "https://wa.me/5511987654321?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Intensivo%20Medicina%20ENEM%20da%20Plataforma%20Browflix."
+    },
+    "disclaimer": "Ao clicar em \"QUERO FAZER PARTE\", você concorda com nossos termos de uso e política de privacidade."
   },
   "pricing": {
     "plans": [
@@ -613,7 +591,7 @@
     "copyright": "© 2024 Plataforma Browflix. Todos os direitos reservados."
   },
   "whatsapp": {
-    "number": "5511987654321",
+    "link": "https://wa.me/5511987654321",
     "message": "Olá! Gostaria de saber mais sobre o Intensivo Medicina ENEM da Plataforma Browflix."
   }
 }
